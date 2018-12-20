@@ -46,23 +46,3 @@ RUN sed -i "s/xdebug.remote_autostart=0/xdebug.remote_autostart=1/" /usr/local/e
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm /var/log/lastlog /var/log/faillog
-
-# COPY data in image when build
-ADD ./application /var/www
-
-# Set working directory as
-WORKDIR /var/www
-
-# Make permission to workdir
-RUN chown -R www-data:www-data ./* \
-    && chown -R www-data:www-data ./.* \
-    && find . -type f -exec chmod 644 {} \; \
-    && find . -type d -exec chmod 775 {} \;
-
-ARG COMPOSER_UPDATE
-
-RUN if [ $COMPOSER_UPDATE = "true" ]; then \
-    composer update \
-;fi
-
-RUN cp ./.env.example .env

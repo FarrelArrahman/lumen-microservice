@@ -5,7 +5,6 @@ services:
   ####################################################################################################
   mysql:
     container_name: ${MYSQL_NAME}_${MYSQL_TAG}
-    image: "${MYSQL_NAME}:${MYSQL_TAG}"
     build:
       context: ./
       dockerfile: ./docker-compose/mysql/Dockerfile
@@ -16,14 +15,13 @@ services:
     expose:
         - 3306
     volumes:
-        - ./docker-compose/image/mysql/data/:/var/lib/mysql
+        - ./docker-compose/volumes/mysql/:/var/lib/mysql
 
   ####################################################################################################
   # The Redis Server
   ####################################################################################################
   redis:
     container_name: ${REDIS_NAME}_${REDIS_TAG}
-    image: "${REDIS_NAME}:${REDIS_TAG}"
     build:
       context: ./
       dockerfile: ./docker-compose/redis/Dockerfile
@@ -34,7 +32,7 @@ services:
     expose:
         - 6379
     volumes:
-        - ./docker-compose/image/redis/data:/data
+        - ./docker-compose/volumes/redis/:/data
 
   # Use it with command: docker-compose run redis-cli
   redis-cli:
@@ -49,13 +47,11 @@ services:
   ####################################################################################################
   workspace:
     container_name: ${WORKSPACE_NAME}_${WORKSPACE_TAG}
-    image: "${WORKSPACE_NAME}:${WORKSPACE_TAG}"
     build:
       context: ./
       dockerfile: ./docker-compose/workspace/Dockerfile
       args:
         - TAG=${WORKSPACE_TAG}
-        - COMPOSER_UPDATE=${COMPOSER_UPDATE}
     working_dir: /var/www
     volumes:
       - ./application:/var/www
@@ -68,15 +64,12 @@ services:
   ####################################################################################################
   nginx:
     container_name: ${NGINX_NAME}_${NGINX_TAG}
-    image: "${NGINX_NAME}:${NGINX_TAG}"
     build:
       context: ./
       dockerfile: ./docker-compose/nginx/Dockerfile
       args:
         - TAG=${NGINX_TAG}
     working_dir: /var/www
-    volumes:
-      - ./docker-compose/image/nginx/data/:/var/www
     ports:
       - "80:80"
     depends_on:

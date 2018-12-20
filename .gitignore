@@ -3,5 +3,5 @@ application/vendor
 application/Homestead.json
 application/Homestead.yaml
 .env
-/docker-compose/image
+/docker-compose/volumes
 /application/vendor/

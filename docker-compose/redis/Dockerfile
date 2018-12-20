@@ -4,5 +4,4 @@ FROM redis:$TAG
 
 LABEL maintainer="Fabrizio Cafolla <info@fabriziocafolla.com>"
 
-# ADD data in image when build
-ADD ./docker-compose/image/redis/data /data
+VOLUME ./docker-compose/volumes/redis/ /var/lib/mysql
