@@ -1,23 +1,24 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-1.5.0--beta-green.svg)
+![](https://img.shields.io/badge/version-1.5.1--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
 ### Let's go
-    /*dev env*/
+**Develop env**
+    
     cp .env.docker .env
     docker-compose build
     docker-compose up -d
     /*only first time*/
-    docker-compose exec workspace bash
-    cp ./.env.example .env
-    php artisan jwt:secret -f
+    chmod +x ./setup.sh
+    ./setup.sh
     
-    /*prod env*/
+**prod env**
+
     docker build --tag microservice-lumen .
     docker run -d -p 9000:9000 --name name-of-container -it microservice-lumen /bin/bash
 
-    /*pull container from dockergub (tagname: develop or latest)*/
+    /*or pull container from dockergub (tagname: develop or latest)*/
     docker pull fabriziocaf/microservice-lumen:tagname
     
 [Wiki](https://github.com/FabrizioCafolla/microservice-lumen/wiki)
@@ -49,6 +50,11 @@
 
 ### Changelog
 
+  ##### v1.5.1 beta
+    -fixed docker-compose file
+    -fixed setup develop env
+    -fixed volumes data
+    
   ##### v1.5.0 beta
     -Update directory and docker file
     -Update core package 
