@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   ####################################################################################################
   # Creating container MySQL
@@ -15,7 +15,10 @@ services:
     expose:
         - 3306
     volumes:
-        - ./docker-compose/volumes/mysql/:/var/lib/mysql
+        - mysql_dump:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
 
   ####################################################################################################
   # The Redis Server
@@ -32,12 +35,12 @@ services:
     expose:
         - 6379
     volumes:
-        - ./docker-compose/volumes/redis/:/data
+        - redis_dump:/data
 
   # Use it with command: docker-compose run redis-cli
   redis-cli:
     container_name: ${NAME}_redis-cli
-    image: "${REDIS_NAME}:${REDIS_TAG}"
+    image: ${REDIS_NAME}:${REDIS_TAG}
     links:
       - redis
     command: redis-cli -h redis
@@ -74,3 +77,7 @@ services:
       - "80:80"
     depends_on:
       - workspace
+
+volumes:
+  mysql_dump:
+  redis_dump:

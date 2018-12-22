@@ -9,16 +9,23 @@
     cp .env.docker .env
     docker-compose build
     docker-compose up -d
-    /*only first time*/
-    chmod +x ./setup.sh
-    ./setup.sh
     
-**prod env**
-
+    /*only first time*/
+    chmod +x ./setup.sh ./setupVolumes.sh
+    ./setup.sh
+    ./setupVolumes.sh
+    
+    /*utility*/
+    docker-compose exec name bash (name = one of workspace, redis, mysql or nginx
+    docker-compose exec workspace composer update
+    docker-compose run redis-cli
+    
+**prod env** (only php microservice)
+    
     docker build --tag microservice-lumen .
     docker run -d -p 9000:9000 --name name-of-container -it microservice-lumen /bin/bash
 
-    /*or pull container from dockergub (tagname: develop or latest)*/
+    /*or pull image from dockerhub (tagname: develop or latest)*/
     docker pull fabriziocaf/microservice-lumen:tagname
     
 [Wiki](https://github.com/FabrizioCafolla/microservice-lumen/wiki)

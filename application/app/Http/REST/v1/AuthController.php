@@ -37,6 +37,7 @@
 		 * Returns the token or an error response
 		 *
 		 * @param Request $request
+		 *
 		 * @return mixed (token) or (errors)
 		 */
 		public function authenticate(Request $request)
@@ -55,11 +56,12 @@
 
 		/**
 		 * Register method.
-		 * The request is validated by the user repository method, then it is created and then authenticated with JWT which creates the token.
-		 * If the token is successfully created, the roles and permssi are assigned to the user.
-		 * Return a reply with the user and the token
+		 * The request is validated by the user repository method, then it is created and then authenticated with JWT
+		 * which creates the token. If the token is successfully created, the roles and permssi are assigned to the
+		 * user. Return a reply with the user and the token
 		 *
 		 * @param Request $request
+		 *
 		 * @return mixed (user + token) or (errors)
 		 */
 		public function register(Request $request)
@@ -67,16 +69,16 @@
 
 			$validator = $this->model->validateRequest($request->all(), "store");
 
-			if ($validator->status() != "200")
-				return $validator;
+			if ($validator->isSuccessful()) {
+				$user = $this->model->create($request->all());
 
-			$user = $this->model->create($request->all());
+				$token = $this->auth->jwt->fromUser($user);
+				if (!$token)
+					return $this->response()->errorInternal();
 
-			$token = $this->auth->jwt->fromUser($user);
-			if (!$token)
-				return $this->response()->errorInternal();
-
-			return $this->response()->data(compact('user', 'token'));
+				return $this->response()->successData(compact('user', 'token'));
+			}
+			return $validator;
 		}
 
 		/**
