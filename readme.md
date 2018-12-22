@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-1.5.1--beta-green.svg)
+![](https://img.shields.io/badge/version-1.5.2--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -57,6 +57,11 @@
 
 ### Changelog
 
+  ##### v1.5.2 beta
+    -fixed docker-compose mysql
+    -add docker volumes
+    -remove folder data
+    
   ##### v1.5.1 beta
     -fixed docker-compose file
     -fixed setup develop env
@@ -103,19 +108,6 @@
     -Fixed error storage
     -Create Primitive graphql type
     -Create class to call Primitive type 
-    
-  ##### v1.2.1 beta
-    -Fixed Log service and add new method
-    -Add composer to app container
-    -Create Fractal trait
-    -Fixed middleware auth
-    
-  ##### v1.2.0 beta
-    -Changed many names and parameters of methods
-    -Remove Dingo package
-    -Fixed Respose service and add errorException function
-    -Add json response in handler exception
-    -Fixed Auth service
 
 ## License
 
