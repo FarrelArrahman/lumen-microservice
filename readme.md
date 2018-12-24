@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-1.5.2--beta-green.svg)
+![](https://img.shields.io/badge/version-1.5.3--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -57,6 +57,11 @@
 
 ### Changelog
 
+  ##### v1.5.3 beta
+    -fixed config file
+    -fixed controllers REST e GraphQL
+    -clean code framework
+
   ##### v1.5.2 beta
     -fixed docker-compose mysql
     -add docker volumes
@@ -91,23 +96,6 @@
     -Create framework package
     -Fixed namespace
     -Fixed config
-  
-  ##### v1.3.1 beta
-    -Fixed Response service
-    -Fixed Handling
-    -Add REST API
-    -Fixed Middleware
-    -Create policy
-    
-  ##### v1.3.0 beta
-    -Add Folklore GraphQL package 
-    -Add confiration package (with Provider and Config)
-    -Remove folder Api
-    -Add REST and GraphQL folder to App\Http
-    -Fixed serializer
-    -Fixed error storage
-    -Create Primitive graphql type
-    -Create class to call Primitive type 
 
 ## License
 
