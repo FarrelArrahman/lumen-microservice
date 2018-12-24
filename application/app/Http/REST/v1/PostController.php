@@ -57,14 +57,16 @@
 					->serializer(new KeyArraySerializer('posts'))
 					->paginate($posts, new PostTransformer);
 
-				$response = $this->response()->successData($data);
 
-				if ($responseCached = $this->cache->redis()->get('posts-index'))
+				if ($responseCached = $this->cache->redis()->get('posts-index')) {
 					return $responseCached;
-				else
+				}
+				else{
+					$response = $this->response()->successData($data);
 					$this->cache->redis()->withSerializer(ResponseSerializer::class)->set('posts-index', $response, 5);
 
-				return $response;
+					return $response;
+				}
 			}
 			return $this->response()->errorNotFound();
 		}
@@ -87,14 +89,16 @@
 					->serializer(new KeyArraySerializer('post'))
 					->item($post, new PostTransformer);
 
-				$response = $this->response()->withLinks($post->getLinks())->successData($data);
 
-				if ($responseCached = $this->cache->redis()->get('posts-show'))
+				if ($responseCached = $this->cache->redis()->get('posts-show')) {
 					return $responseCached;
-				else
+				}
+				else {
+					$response = $this->response()->withLinks($post->getLinks())->successData($data);
 					$this->cache->redis()->withSerializer(ResponseSerializer::class)->set('posts-show', $response, 5);
+					return $response;
+				}
 
-				return $response;
 			}
 			return $this->response()->errorNotFound();
 		}

@@ -51,21 +51,22 @@
 		 */
 		public function index()
 		{
-			$users = $this->repository->paginate();
+			$users = $this->repository->all();
 
 			if ($users) {
 				$data = $this->api
 					->serializer(new KeyArraySerializer('users'))
-					->paginate($users, new UserTransformer());
+					->includes('posts')
+					->collection($users, new UserTransformer());
 
-				$response = $this->response()->successData($data);
-
-				if ($responseCached = $this->cache->redis()->get('users-index'))
+				if ($responseCached = $this->cache->redis()->get('users-index')){
 					return $responseCached;
-				else
+				} else {
+					$response = $this->response()->successData($data);
 					$this->cache->redis()->withSerializer(ResponseSerializer::class)->set('users-index', $response, 1);
 
-				return $response;
+					return $response;
+				}
 			}
 			return $this->response()->errorNotFound();
 		}
@@ -92,14 +93,16 @@
 					->serializer(new KeyArraySerializer('user'))
 					->item($user, new UserTransformer);
 
-				$response = $this->response()->withLinks($user->getLinks(), false)->successData($data);
 
-				if ($responseCached = $this->cache->file()->get('users-show'))
+				if ($responseCached = $this->cache->file()->get('users-show'))  {
 					return $responseCached;
-				else
+				}
+				else {
+					$response = $this->response()->withLinks($user->getLinks(), false)->successData($data);
 					$this->cache->file()->withSerializer(ResponseSerializer::class)->put('users-show', $response, 1);
 
-				return $response;
+					return $response;
+				}
 			}
 			return $this->response()->errorNotFound();
 		}
