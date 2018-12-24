@@ -6,23 +6,23 @@
 	 * Time: 22.20
 	 */
 
-	namespace App\Http\GraphQL\v1\Query;
+	namespace App\Http\GraphQL\v1\User\Query;
 
 	use GraphQL;
 	use GraphQL\Type\Definition\Type;
 	use Folklore\GraphQL\Support\Query;
-	use App\Repositories\PostRepository as Post;
+	use App\Repositories\UserRepository as User;
 
-	class PostsQuery extends Query
+	class UsersQuery extends Query
 	{
 
 		public $model;
 		protected $attributes = [
-			'name' => 'posts',
-			'uri' => 'query=query{posts{id,title,description,timestamp{}}}}'
+			'name' => 'users',
+			'uri' => 'query=query{users{id,name,email,timestamp{}}}}'
 		];
 
-		public function __construct($attributes = [], Post $model)
+		public function __construct($attributes = [], User $model)
 		{
 			parent::__construct($attributes);
 			$this->model = $model;
@@ -30,14 +30,15 @@
 
 		public function type()
 		{
-			return Type::listOf(GraphQL::type('Post'));
+			return Type::listOf(GraphQL::type('User'));
 		}
 
 		public function args()
 		{
 			return [
 				'id' => ['name' => 'id', 'type' => Type::int()],
-				'title' => ['name' => 'title', 'type' => Type::string()]
+				'email' => ['name' => 'email', 'type' => Type::string()],
+				'name' => ['name' => 'name', 'type' => Type::string()],
 			];
 		}
 
@@ -45,8 +46,8 @@
 		{
 			if (isset($args['id'])) {
 				return array($this->model->find($args['id']));
-			} else if (isset($args['title'])) {
-				return array($this->model->findBy('title', $args['title']));
+			} else if (isset($args['email'])) {
+				return array($this->model->findBy('email', $args['email']));
 			} else {
 				return $this->model->all();
 			}
