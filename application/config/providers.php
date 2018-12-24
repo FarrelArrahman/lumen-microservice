@@ -49,4 +49,6 @@
 		],
 
 		'route_middlewares' => [],
+
+		'handler' => \ResponseHTTP\Response\Laravel\Exceptions\LumenHandler::class,
 	];

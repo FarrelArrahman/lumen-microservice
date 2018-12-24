@@ -338,12 +338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/microservice-lumen-framework.git",
-                "reference": "56760849750c99b31b9471bb82695ce484bfde50"
+                "reference": "b8935ad0d89b2c8f3aa0cbb19661dc32ff1b77ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/microservice-lumen-framework/zipball/56760849750c99b31b9471bb82695ce484bfde50",
-                "reference": "56760849750c99b31b9471bb82695ce484bfde50",
+                "url": "https://api.github.com/repos/FabrizioCafolla/microservice-lumen-framework/zipball/b8935ad0d89b2c8f3aa0cbb19661dc32ff1b77ec",
+                "reference": "b8935ad0d89b2c8f3aa0cbb19661dc32ff1b77ec",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
                 "redis",
                 "rest"
             ],
-            "time": "2018-12-24T11:52:54+00:00"
+            "time": "2018-12-24T15:37:21+00:00"
         },
         {
             "name": "fabrizio-cafolla/response-http",
