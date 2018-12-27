@@ -10,7 +10,7 @@
 
 	use Core\Repository\Eloquent\RepositoryAbstract;
 	use Illuminate\Support\Facades\Validator;
-	use HttpResponse;
+	use ServiceResponse;
 
 	class PostRepository extends RepositoryAbstract
 	{
@@ -48,15 +48,15 @@
 			$rules = $this->rules($type, $rules_specific);
 
 			if (!isset($request)) {
-				return HttpResponse::errorNotFound();
+				return ServiceResponse::errorNotFound();
 			}
 
 			$validator = Validator::make($request, $rules);
 			if ($validator->fails()) {
-				return HttpResponse::withData($validator->errors()->toArray())->errorNotFound();
+				return ServiceResponse::withData($validator->errors()->toArray())->errorNotFound();
 			}
 
-			return HttpResponse::success("Rules validate success");
+			return ServiceResponse::success("Rules validate success");
 		}
 
 		/** Use rules based on request

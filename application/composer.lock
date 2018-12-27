@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df4eb2514ce0ef7e523a5ebdc340dfa5",
+    "content-hash": "29599333ef67e06e43655e6cc5598b55",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -333,25 +333,23 @@
             "time": "2018-12-20T08:31:25+00:00"
         },
         {
-            "name": "fabrizio-cafolla/microservice-lumen-framework",
+            "name": "fabrizio-cafolla/core-microservice",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/FabrizioCafolla/microservice-lumen-framework.git",
-                "reference": "b8935ad0d89b2c8f3aa0cbb19661dc32ff1b77ec"
+                "url": "https://github.com/FabrizioCafolla/core-microservice.git",
+                "reference": "af890d439372621ca6109329eb8ccfbdf2668eb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/microservice-lumen-framework/zipball/b8935ad0d89b2c8f3aa0cbb19661dc32ff1b77ec",
-                "reference": "b8935ad0d89b2c8f3aa0cbb19661dc32ff1b77ec",
+                "url": "https://api.github.com/repos/FabrizioCafolla/core-microservice/zipball/af890d439372621ca6109329eb8ccfbdf2668eb1",
+                "reference": "af890d439372621ca6109329eb8ccfbdf2668eb1",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php-laravel": "^3.2",
                 "fabrizio-cafolla/cache-system": "dev-master",
                 "fabrizio-cafolla/response-http": "dev-master",
-                "folklore/graphql": "dev-develop",
-                "laravel/lumen-framework": "5.7.*",
                 "league/flysystem": "^1.0",
                 "league/fractal": "^0.17.0",
                 "monolog/monolog": "^1.23",
@@ -386,7 +384,7 @@
             "authors": [
                 {
                     "name": "Fabrizio Cafolla",
-                    "email": "info@fabriziocafolla.com"
+                    "email": "developer@fabriziocafolla.com"
                 }
             ],
             "description": "Framework of Microservice Lumen.",
@@ -399,7 +397,7 @@
                 "redis",
                 "rest"
             ],
-            "time": "2018-12-24T15:37:21+00:00"
+            "time": "2018-12-27T20:44:39+00:00"
         },
         {
             "name": "fabrizio-cafolla/response-http",
@@ -452,74 +450,6 @@
                 "symfony"
             ],
             "time": "2018-12-24T15:09:20+00:00"
-        },
-        {
-            "name": "folklore/graphql",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Folkloreatelier/laravel-graphql.git",
-                "reference": "66e92331ff677cf02d2ecfecec8103ada965fbad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Folkloreatelier/laravel-graphql/zipball/66e92331ff677cf02d2ecfecec8103ada965fbad",
-                "reference": "66e92331ff677cf02d2ecfecec8103ada965fbad",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*",
-                "php": ">=5.5.9",
-                "webonyx/graphql-php": "~0.10.2"
-            },
-            "require-dev": {
-                "fzaninotto/faker": "~1.4",
-                "mockery/mockery": "0.9.*",
-                "orchestra/testbench": "3.1.*|3.2.*|3.3.*|3.4.*|3.5.*",
-                "phpunit/phpunit": "~4.0|~5.0|~5.7|~6.0",
-                "satooshi/php-coveralls": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Folklore\\GraphQL\\ServiceProvider"
-                    ],
-                    "aliases": {
-                        "GraphQL": "Folklore\\GraphQL\\Support\\Facades\\GraphQL"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Folklore\\GraphQL\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Folklore",
-                    "email": "info@atelierfolklore.ca",
-                    "homepage": "http://atelierfolklore.ca"
-                },
-                {
-                    "name": "David Mongeau-Petitpas",
-                    "email": "dmp@atelierfolklore.ca",
-                    "homepage": "http://mongo.ca",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Facebook GraphQL for Laravel",
-            "keywords": [
-                "framework",
-                "graphql",
-                "laravel",
-                "react"
-            ],
-            "time": "2018-09-08T16:19:08+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -3912,53 +3842,6 @@
                 "environment"
             ],
             "time": "2018-07-29T20:33:41+00:00"
-        },
-        {
-            "name": "webonyx/graphql-php",
-            "version": "v0.10.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "7cc863df37b2270ec2b57cb9d322da064d832a59"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/7cc863df37b2270ec2b57cb9d322da064d832a59",
-                "reference": "7cc863df37b2270ec2b57cb9d322da064d832a59",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.5,<8.0-DEV"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8",
-                "psr/http-message": "^1.0"
-            },
-            "suggest": {
-                "psr/http-message": "To use standard GraphQL server",
-                "react/promise": "To leverage async resolving on React PHP platform"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/deprecated.php"
-                ],
-                "psr-4": {
-                    "GraphQL\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD"
-            ],
-            "description": "A PHP port of GraphQL reference implementation",
-            "homepage": "https://github.com/webonyx/graphql-php",
-            "keywords": [
-                "api",
-                "graphql"
-            ],
-            "time": "2017-08-30T16:33:58+00:00"
         }
     ],
     "packages-dev": [
@@ -5485,20 +5368,21 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/0df1908962e7a3071564e857d86874dad1ef204a",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.3.3 || ^7.0",
+                "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.6",
@@ -5531,13 +5415,13 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-01-29T19:49:41+00:00"
+            "time": "2018-12-25T11:19:39+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "fabrizio-cafolla/microservice-lumen-framework": 20
+        "fabrizio-cafolla/core-microservice": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

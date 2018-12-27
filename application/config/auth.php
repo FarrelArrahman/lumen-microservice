@@ -2,6 +2,18 @@
 	return [
 		/*
 		|--------------------------------------------------------------------------
+		| Providers auth
+		|--------------------------------------------------------------------------
+		|
+		| Use Tymon providers for Lumen or Laravel app
+		|
+		*/
+		'service_providers' => [
+			'jwt' =>  env('AUTH_PROVIDERS', \Tymon\JWTAuth\Providers\LumenServiceProvider::class)
+		],
+
+		/*
+		|--------------------------------------------------------------------------
 		| Authentication Defaults
 		|--------------------------------------------------------------------------
 		|
