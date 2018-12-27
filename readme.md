@@ -57,6 +57,11 @@
 
 ### Changelog
 
+  ##### v1.5.4 beta
+    -fixed errors
+    -remove GraphQL
+    -change package framework
+
   ##### v1.5.3 beta
     -fixed config file
     -fixed controllers REST e GraphQL
