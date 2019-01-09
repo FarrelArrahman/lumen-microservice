@@ -8,9 +8,9 @@
 
 	namespace App\Http\REST;
 
-	use Core\Http\REST\Controller\ApiBaseController;
+	use Core\Http\Controller\LumenBaseController;
 
-	class BaseController extends ApiBaseController
+	class BaseController extends LumenBaseController
 	{
 		//
 	}
