@@ -9,5 +9,5 @@ VERSION
 readme.md
 .env
 /.idea
-application/_config.yml
+_config.yml
 application/vendor

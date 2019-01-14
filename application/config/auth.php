@@ -102,7 +102,7 @@
 		*/
 		'policies' => [
 			\Illuminate\Http\Request::class => \App\Http\Policies\UserPolicy::class,
-			\App\Models\Post::class => \App\Http\Policies\PostPolicy::class,
+			\App\Models\Example::class => \App\Http\Policies\PostPolicy::class,
 		],
 
 		'defines' => [
