@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-1.5.3--beta-green.svg)
+![](https://img.shields.io/badge/version-1.5.5--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -57,6 +57,12 @@
 
 ### Changelog
 
+  ##### v1.5.5 beta
+    -remove file and add exapmle
+    -fixed auth controller
+    -update package services
+    -fixed Dockerfile prod
+
   ##### v1.5.4 beta
     -fixed errors
     -remove GraphQL
@@ -84,23 +90,6 @@
     -Update and clean code cahce package 
     -Fixed rest controllers
     -Clean code
-    
-  ##### v1.4.2 beta
-    -Update core package 
-    -Update response package 
-    -Update cahce package 
-    -Fixed rest controllers
-    -Fixed errors
-  
-  ##### v1.4.1 beta
-    -Fixed docker compose file
-    -Fixed file with new method of package
-    -Create response-http package for response
-  
-  ##### v1.4.0 beta
-    -Create framework package
-    -Fixed namespace
-    -Fixed config
 
 ## License
 
