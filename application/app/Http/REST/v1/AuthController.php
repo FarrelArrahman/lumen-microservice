@@ -97,7 +97,12 @@
 		 */
 		public function invalidate()
 		{
-			return $this->auth->invalidate(true);
+			$status = $this->auth->invalidate(true);
+
+			if ($status->isSuccess())
+				return $this->response()->success()->withMessage($status->message());
+			else
+				return $this->response()->errorException("Error not invalidate");
 		}
 
 		/**
@@ -105,6 +110,13 @@
 		 */
 		public function refresh()
 		{
-			return $this->auth->refresh(true);
+			$status = $this->auth->refresh(true);
+
+			if ($status->isSuccess())
+				return $this->response($status->data('token'))
+					->withMessage($status->message())
+					->success();
+			else
+				return $this->response()->errorException("Error not refreshed");
 		}
 	}
