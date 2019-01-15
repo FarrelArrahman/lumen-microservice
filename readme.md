@@ -14,6 +14,7 @@
     ./develop.sh -b 
     ./develop.sh -u
     ./develop.sh -r
+    ./develop.sh -d
     ./develop.sh -c "exec name bash (name = one of workspace, redis, mysql or nginx"
     ./develop.sh -c "exec workspace composer update"
     ./develop.sh -c "run redis-cli"
@@ -39,10 +40,11 @@
     cd docker-compose
     docker-compose ...
        
-**prod env** (only php microservice)
+**Production env**
     
     docker build --tag microservice-lumen .
     docker run -d -p 9000:9000 --name name-of-container -it microservice-lumen /bin/bash
+    docker exec -it name-of-container bash
 
     /*or pull image from dockerhub (tagname: develop or latest)*/
     docker pull fabriziocaf/microservice-lumen:tagname
