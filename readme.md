@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-1.5.5--beta-green.svg)
+![](https://img.shields.io/badge/version-1.6.0--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -77,6 +77,11 @@
 **Artisan commands** to create Repository, ApiController, Provider and Transoformers (Other commands to create example file view documentation)
 
 ### Changelog
+
+  ##### v1.6.0 beta
+    -Clean directory
+    -Add script to manage docker develop env
+    -Fixed Dockerfile for production uses
 
   ##### v1.5.5 beta
     -remove file and add exapmle
