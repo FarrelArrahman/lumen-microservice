@@ -5,4 +5,4 @@ FROM nginx:$TAG
 LABEL maintainer="Fabrizio Cafolla <info@fabriziocafolla.com>"
 
 # ADD data in image when build
-ADD ./docker-compose/nginx/vhosts.conf /etc/nginx/conf.d/default.conf
+ADD ./nginx/vhosts.conf /etc/nginx/conf.d/default.conf

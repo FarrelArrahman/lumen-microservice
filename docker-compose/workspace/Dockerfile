@@ -36,8 +36,8 @@ RUN apt-get update \
     && docker-php-ext-enable xdebug
 
 # Copy xdebug configuration for remote debugging
-COPY ./docker-compose/workspace/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-COPY ./docker-compose/workspace/xdebug.ini /etc/php/7.2/apache2/conf.d
+COPY ./workspace/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY ./workspace/xdebug.ini /etc/php/7.2/apache2/conf.d
 RUN sed -i "s/xdebug.remote_autostart=0/xdebug.remote_autostart=1/" /usr/local/etc/php/conf.d/xdebug.ini && \
     sed -i "s/xdebug.remote_enable=0/xdebug.remote_enable=1/" /usr/local/etc/php/conf.d/xdebug.ini && \
     sed -i "s/xdebug.cli_color=0/xdebug.cli_color=1/" /usr/local/etc/php/conf.d/xdebug.ini

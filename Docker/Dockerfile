@@ -25,7 +25,7 @@ RUN apt-get update && \
     apt-get install -y git
 
 # Add file app in image
-COPY ./application /var/www
+COPY ../application /var/www
 
 # Set working directory as
 WORKDIR /var/www
@@ -51,5 +51,9 @@ RUN chown -R www-data:www-data ./* \
     && find . -type d -exec chmod 775 {} \;
 
 EXPOSE 9000
+
+COPY ./docker-entrypoint.sh /usr/local/bin/
+
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD ["bash"]

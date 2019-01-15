@@ -5,21 +5,40 @@
 
 ### Let's go
 **Develop env**
-    
-    cp .env.docker .env
-    docker-compose build
-    docker-compose up -d
-    
+
     /*only first time*/
-    chmod +x ./setup.sh ./setupVolumes.sh
-    ./setup.sh
-    ./setupVolumes.sh
+    chmod +x ./develop.sh 
+    ./develop.sh -s
     
     /*utility*/
-    docker-compose exec name bash (name = one of workspace, redis, mysql or nginx
-    docker-compose exec workspace composer update
-    docker-compose run redis-cli
+    ./develop.sh -b 
+    ./develop.sh -u
+    ./develop.sh -r
+    ./develop.sh -c "exec name bash (name = one of workspace, redis, mysql or nginx"
+    ./develop.sh -c "exec workspace composer update"
+    ./develop.sh -c "run redis-cli"
     
+     ./develop.sh --help
+    -s
+      Setup application use it only first time, create volumes and make workdir setup
+    -b
+      Build all container of docker-compose file
+    -u
+      Up all container of docker-compose file with -d mode
+    -r
+      Build and up all container
+    -d
+      Down all container started
+    -c
+      Allows to use all the docker-compose commands. (The commands that you want to launch must be contained between " ")
+      Example:
+       ./develop.sh -c "up -d"
+       ./develop.sh -c "build --no-cache"
+       
+    /*If use normal commands*/
+    cd docker-compose
+    docker-compose ...
+       
 **prod env** (only php microservice)
     
     docker build --tag microservice-lumen .

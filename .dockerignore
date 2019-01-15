@@ -1,11 +1,10 @@
 **/docker-compose
 application/app/Console
-docker-compose.yml
+docker-compose/docker-compose.yml
 /.github
 .git
 .gitignore
 LICENSE
-VERSION
 readme.md
 .env
 /.idea

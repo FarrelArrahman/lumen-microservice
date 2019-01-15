@@ -6,8 +6,8 @@ services:
   mysql:
     container_name: ${MYSQL_NAME}_${MYSQL_TAG}
     build:
-      context: ./
-      dockerfile: ./docker-compose/mysql/Dockerfile
+      context: .
+      dockerfile: mysql/Dockerfile
       args:
         - TAG=${MYSQL_TAG}
     ports:
@@ -26,8 +26,8 @@ services:
   redis:
     container_name: ${REDIS_NAME}_${REDIS_TAG}
     build:
-      context: ./
-      dockerfile: ./docker-compose/redis/Dockerfile
+      context: .
+      dockerfile: redis/Dockerfile
       args:
         - TAG=${REDIS_TAG}
     ports:
@@ -51,13 +51,13 @@ services:
   workspace:
     container_name: ${WORKSPACE_NAME}_${WORKSPACE_TAG}
     build:
-      context: ./
-      dockerfile: ./docker-compose/workspace/Dockerfile
+      context: .
+      dockerfile: workspace/Dockerfile
       args:
         - TAG=${WORKSPACE_TAG}
     working_dir: /var/www
     volumes:
-      - ./application:/var/www
+      - ../application:/var/www
     links:
       - mysql
       - redis
@@ -68,8 +68,8 @@ services:
   nginx:
     container_name: ${NGINX_NAME}_${NGINX_TAG}
     build:
-      context: ./
-      dockerfile: ./docker-compose/nginx/Dockerfile
+      context: .
+      dockerfile: nginx/Dockerfile
       args:
         - TAG=${NGINX_TAG}
     working_dir: /var/www
