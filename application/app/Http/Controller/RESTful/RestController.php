@@ -6,11 +6,11 @@
 	 * Time: 23.59
 	 */
 
-	namespace App\Http\REST;
+	namespace App\Http\Controller\RESTful;
 
 	use Core\Http\Controller\LumenBaseController;
 
-	class BaseController extends LumenBaseController
+	class RestController extends LumenBaseController
 	{
 		//
 	}

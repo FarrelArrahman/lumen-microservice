@@ -6,15 +6,14 @@
 	 * Time: 14.48
 	 */
 
-	namespace App\Http\REST\v1;
+	namespace App\Http\Controller\RESTful\v1;
 
+	use App\Http\Controller\RESTful\RestController;
 	use App\Repositories\UserRepository;
 	use ACLService;
 	use Illuminate\Http\Request;
-	use App\Http\REST\BaseController;
-	use App\Models\User;
 
-	class AuthController extends BaseController
+	class AuthController extends RestController
 	{
 		/** User Repository
 		 *
