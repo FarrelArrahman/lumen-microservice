@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-1.6.0--beta-green.svg)
+![](https://img.shields.io/badge/version-1.6.1--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -77,6 +77,11 @@
 **Artisan commands** to create Repository, ApiController, Provider and Transoformers (Other commands to create example file view documentation)
 
 ### Changelog
+
+  ##### v1.6.1 beta
+    -Add controller Auth with artisan command
+    -Fixed CORS middleware
+    -Update core-microservice
 
   ##### v1.6.0 beta
     -Clean directory
