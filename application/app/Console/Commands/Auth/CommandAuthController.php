@@ -66,9 +66,9 @@
 		public function register(Request $request)
 		{
 
-			$validator = $this->model->validateRequest($request->all(), "store");
+			$validator = $this->model->validateRequest($request->all(), "create");
 
-			if ($validator->isSuccessful()) {
+			if ($validator->isSuccess()) {
 				$user = $this->model->create($request->all());
 
 				$token = $this->auth->jwt->fromUser($user);
@@ -77,7 +77,7 @@
 
 				return $this->response()->successData(compact('user', 'token'));
 			}
-			return $validator;
+			return $this->response()->withValidation($validator->data(), true)->errorBadRequest();
 		}
 
 		/**

@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.86.1",
+            "version": "3.86.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "217f783754b803b95eea220308ca7cf046ead832"
+                "reference": "50224232ac7a4e2a6fa4ebbe0281e5b7503acf76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/217f783754b803b95eea220308ca7cf046ead832",
-                "reference": "217f783754b803b95eea220308ca7cf046ead832",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/50224232ac7a4e2a6fa4ebbe0281e5b7503acf76",
+                "reference": "50224232ac7a4e2a6fa4ebbe0281e5b7503acf76",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-01-17T23:11:37+00:00"
+            "time": "2019-01-18T21:10:44+00:00"
         },
         {
             "name": "aws/aws-sdk-php-laravel",
@@ -338,12 +338,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/core-microservice.git",
-                "reference": "bf7e3c1511580e221fcc14a82e12da3e18afb2de"
+                "reference": "8c6ec2a4a13f5aba94ddb1928d5d78fa9518e933"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/core-microservice/zipball/bf7e3c1511580e221fcc14a82e12da3e18afb2de",
-                "reference": "bf7e3c1511580e221fcc14a82e12da3e18afb2de",
+                "url": "https://api.github.com/repos/FabrizioCafolla/core-microservice/zipball/8c6ec2a4a13f5aba94ddb1928d5d78fa9518e933",
+                "reference": "8c6ec2a4a13f5aba94ddb1928d5d78fa9518e933",
                 "shasum": ""
             },
             "require": {
@@ -398,7 +398,7 @@
                 "redis",
                 "rest"
             ],
-            "time": "2019-01-18T13:39:47+00:00"
+            "time": "2019-01-21T13:49:00+00:00"
         },
         {
             "name": "fabrizio-cafolla/resources-manager",
@@ -452,12 +452,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/response-http.git",
-                "reference": "166641f43b73b9639093c0124d551458eb9c4f86"
+                "reference": "496323e14778c5c255afe3afceffe8ae5f7d3996"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/response-http/zipball/166641f43b73b9639093c0124d551458eb9c4f86",
-                "reference": "166641f43b73b9639093c0124d551458eb9c4f86",
+                "url": "https://api.github.com/repos/FabrizioCafolla/response-http/zipball/496323e14778c5c255afe3afceffe8ae5f7d3996",
+                "reference": "496323e14778c5c255afe3afceffe8ae5f7d3996",
                 "shasum": ""
             },
             "require": {
@@ -496,7 +496,7 @@
                 "rest",
                 "symfony"
             ],
-            "time": "2019-01-09T12:01:21+00:00"
+            "time": "2019-01-21T13:53:11+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

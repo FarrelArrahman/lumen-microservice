@@ -16,97 +16,92 @@
 
 	class UserRepository extends RepositoryAbstract
 	{
-		private static $rules = [
+		public const RULES = array(
 			'email' => 'required|email|unique:users,email|max:255',
-			'password' => 'required|min:6|max:20',
 			'name' => 'required|min:5|max:255',
-			'surname' => 'required|min:5|max:255'
-		];
+			'surname' => 'required|min:5|max:255',
+		);
 
-		private static $rules_update = [
-			'email' => 'email|max:255',
+		public const RULES_UPDATE = array(
+			'email' => 'required|email|max:255',
 			'name' => 'required|min:5|max:255',
-			'surname' => 'min:5|max:255'
-		];
+			'surname' => 'required|min:5|max:255',
+		);
 
-		private static $rules_password = [
-			'password' => 'required|min:6|max:20',
-			'confirm_password' => 'required|same:password'
-		];
+		public const RULES_PASSWORD = array(
+			'password' => 'required|min:6|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+			'confirm_password' => 'required|same:password',
+		);
 
 		/**
 		 * Specify Model class name
 		 *
 		 * @return mixed
 		 */
-		function model()
+		function model(): string
 		{
 			return 'App\Models\User';
 		}
 
 		/**
-		 * @param array $data
-		 * @param $id
+		 * @param array  $data
+		 * @param        $id
 		 * @param string $attribute
+		 *
 		 * @return mixed
 		 */
-		public function updateUser(array $data, $id, $attribute="id") {
-			if(array_has($data, 'password'))
+		public function updatePassword(array $data, $id, $attribute = "id")
+		{
+			if (array_has($data, 'password'))
 				data_set($data, 'password', Hash::make($data["password"]));
 
-			$response = $this->update($data,  $id, $attribute);
-			return $response;
+			return $this->update($data, $id, $attribute);
 		}
 
-		/** Validate request api
+		/**
+		 * Validate request with rules and return StatusService with data or fail
 		 *
 		 * @param array $request
-		 * @param $type
+		 * @param       $type
 		 * @param array $rules_specific
-		 * @return \Illuminate\Http\JsonResponse
+		 *
+		 * @return \Core\Services\ServiceStatus|\Core\Services\Status\StatusService
 		 */
-		public function validateRequest(array $request, $type, array $rules_specific = [])
+		public function validateRequest(array $request, string $type, array $rules = array())
 		{
-			$rules = $this->rules($type, $rules_specific);
+			$rules = $rules ?: $this->rules($type);
 
-			if (!isset($request)) {
-				return ServiceResponse::errorNotFound();
-			}
+			if (!isset($request))
+				return $this->service->fail(404, array(), "Rules not validate");
 
 			$validator = Validator::make($request, $rules);
 			if ($validator->fails()) {
-				return ServiceResponse::withData($validator->errors()->toArray())->errorNotFound();
+				return  $this->service->fail(400, $validator->errors()->toArray(), "Rules not validate");
 			}
 
-			return ServiceResponse::success("Rules validate success");
+			return $this->service->success(200, array(), "Rules validate success");
 		}
 
 		/** Use rules based on request
 		 *
-		 * @param $type
-		 * @param array $rules_specific
+		 * @param       $type
+		 *
 		 * @return array
 		 */
-		private function rules($type, array $rules_specific = [])
+		private function rules($type): array
 		{
-			if(!empty($rules_specific)){
-				return $rules_specific;
-			}
-
 			switch ($type) {
-				case "store":
 				case "create":
-					$rules = self::$rules;
+					$rules = array_merge(self::RULES, self::RULES_PASSWORD);
 					break;
 				case "update":
-					$rules = self::$rules_update;
+					$rules = self::RULES_UPDATE;
 					break;
 				case "password":
-					$rules = self::$rules_password;
+					$rules = self::RULES_PASSWORD;
 					break;
 				default:
-					$rules = self::$rules;
-					break;
+					$rules = self::RULES;
 			}
 
 			return $rules;
