@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8fb012a06eb7b44e38846c37e3bcad1d",
+    "content-hash": "f5693e7bd2d1ac7019b5290cdf15bc16",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.86.2",
+            "version": "3.87.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "50224232ac7a4e2a6fa4ebbe0281e5b7503acf76"
+                "reference": "415d86ea583aa5bb69ec6ab83f81ea501af0c4da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/50224232ac7a4e2a6fa4ebbe0281e5b7503acf76",
-                "reference": "50224232ac7a4e2a6fa4ebbe0281e5b7503acf76",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/415d86ea583aa5bb69ec6ab83f81ea501af0c4da",
+                "reference": "415d86ea583aa5bb69ec6ab83f81ea501af0c4da",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-01-18T21:10:44+00:00"
+            "time": "2019-01-23T23:06:01+00:00"
         },
         {
             "name": "aws/aws-sdk-php-laravel",
@@ -273,16 +273,16 @@
         },
         {
             "name": "fabrizio-cafolla/cache-system",
-            "version": "dev-master",
+            "version": "1.0.1-rc",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/cache-system.git",
-                "reference": "47dd8219dc0c17f6edb1acad5a9b30c842af7de3"
+                "reference": "2d68e48cb334bbcd5061220748ad4a783b64c138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/cache-system/zipball/47dd8219dc0c17f6edb1acad5a9b30c842af7de3",
-                "reference": "47dd8219dc0c17f6edb1acad5a9b30c842af7de3",
+                "url": "https://api.github.com/repos/FabrizioCafolla/cache-system/zipball/2d68e48cb334bbcd5061220748ad4a783b64c138",
+                "reference": "2d68e48cb334bbcd5061220748ad4a783b64c138",
                 "shasum": ""
             },
             "require": {
@@ -330,27 +330,27 @@
                 "lumen",
                 "redis"
             ],
-            "time": "2019-01-09T14:59:56+00:00"
+            "time": "2018-12-15T20:02:28+00:00"
         },
         {
             "name": "fabrizio-cafolla/core-microservice",
-            "version": "dev-master",
+            "version": "1.0.3-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/core-microservice.git",
-                "reference": "8c6ec2a4a13f5aba94ddb1928d5d78fa9518e933"
+                "reference": "8ba271a0c21d0dbb9a50899c12e7c6bf835aad0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/core-microservice/zipball/8c6ec2a4a13f5aba94ddb1928d5d78fa9518e933",
-                "reference": "8c6ec2a4a13f5aba94ddb1928d5d78fa9518e933",
+                "url": "https://api.github.com/repos/FabrizioCafolla/core-microservice/zipball/8ba271a0c21d0dbb9a50899c12e7c6bf835aad0e",
+                "reference": "8ba271a0c21d0dbb9a50899c12e7c6bf835aad0e",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php-laravel": "^3.2",
-                "fabrizio-cafolla/cache-system": "dev-master",
-                "fabrizio-cafolla/resources-manager": "dev-master",
-                "fabrizio-cafolla/response-http": "dev-master",
+                "fabrizio-cafolla/cache-system": "~1.0",
+                "fabrizio-cafolla/resources-manager": "~1.0",
+                "fabrizio-cafolla/response-http": "~1.0",
                 "league/flysystem": "^1.0",
                 "league/fractal": "^0.17.0",
                 "monolog/monolog": "^1.23",
@@ -398,20 +398,20 @@
                 "redis",
                 "rest"
             ],
-            "time": "2019-01-21T13:49:00+00:00"
+            "time": "2019-01-24T14:12:10+00:00"
         },
         {
             "name": "fabrizio-cafolla/resources-manager",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/resources-manager.git",
-                "reference": "de108ef76f7dcf33974b31f127a0fe8607bfd12c"
+                "reference": "292f6a63b82a1995ea03068cf36bfd5d15ae1bae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/resources-manager/zipball/de108ef76f7dcf33974b31f127a0fe8607bfd12c",
-                "reference": "de108ef76f7dcf33974b31f127a0fe8607bfd12c",
+                "url": "https://api.github.com/repos/FabrizioCafolla/resources-manager/zipball/292f6a63b82a1995ea03068cf36bfd5d15ae1bae",
+                "reference": "292f6a63b82a1995ea03068cf36bfd5d15ae1bae",
                 "shasum": ""
             },
             "require": {
@@ -442,22 +442,26 @@
             ],
             "keywords": [
                 "laravel",
-                "lumen"
+                "lumen",
+                "manager",
+                "metatag",
+                "opengraph",
+                "resources"
             ],
-            "time": "2019-01-05T16:10:54+00:00"
+            "time": "2019-01-24T14:01:14+00:00"
         },
         {
             "name": "fabrizio-cafolla/response-http",
-            "version": "dev-master",
+            "version": "1.0.1-rc",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/response-http.git",
-                "reference": "496323e14778c5c255afe3afceffe8ae5f7d3996"
+                "reference": "166641f43b73b9639093c0124d551458eb9c4f86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/response-http/zipball/496323e14778c5c255afe3afceffe8ae5f7d3996",
-                "reference": "496323e14778c5c255afe3afceffe8ae5f7d3996",
+                "url": "https://api.github.com/repos/FabrizioCafolla/response-http/zipball/166641f43b73b9639093c0124d551458eb9c4f86",
+                "reference": "166641f43b73b9639093c0124d551458eb9c4f86",
                 "shasum": ""
             },
             "require": {
@@ -496,7 +500,7 @@
                 "rest",
                 "symfony"
             ],
-            "time": "2019-01-21T13:53:11+00:00"
+            "time": "2019-01-09T12:01:21+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -683,7 +687,7 @@
         },
         {
             "name": "illuminate/auth",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/auth.git",
@@ -734,7 +738,7 @@
         },
         {
             "name": "illuminate/broadcasting",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/broadcasting.git",
@@ -784,7 +788,7 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -829,7 +833,7 @@
         },
         {
             "name": "illuminate/cache",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/cache.git",
@@ -878,7 +882,7 @@
         },
         {
             "name": "illuminate/config",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
@@ -922,7 +926,7 @@
         },
         {
             "name": "illuminate/console",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
@@ -972,7 +976,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -1017,7 +1021,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -1061,7 +1065,7 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
@@ -1120,7 +1124,7 @@
         },
         {
             "name": "illuminate/encryption",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/encryption.git",
@@ -1166,7 +1170,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -1211,7 +1215,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -1263,7 +1267,7 @@
         },
         {
             "name": "illuminate/hashing",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/hashing.git",
@@ -1307,7 +1311,7 @@
         },
         {
             "name": "illuminate/http",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/http.git",
@@ -1353,7 +1357,7 @@
         },
         {
             "name": "illuminate/log",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/log.git",
@@ -1398,7 +1402,7 @@
         },
         {
             "name": "illuminate/pagination",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pagination.git",
@@ -1442,7 +1446,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -1486,7 +1490,7 @@
         },
         {
             "name": "illuminate/queue",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/queue.git",
@@ -1544,7 +1548,7 @@
         },
         {
             "name": "illuminate/redis",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/redis.git",
@@ -1589,7 +1593,7 @@
         },
         {
             "name": "illuminate/session",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/session.git",
@@ -1639,7 +1643,7 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v5.7.20",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
@@ -1698,7 +1702,7 @@
         },
         {
             "name": "illuminate/translation",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/translation.git",
@@ -1743,7 +1747,7 @@
         },
         {
             "name": "illuminate/validation",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/validation.git",
@@ -1793,7 +1797,7 @@
         },
         {
             "name": "illuminate/view",
-            "version": "v5.7.21",
+            "version": "v5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
@@ -5468,9 +5472,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "fabrizio-cafolla/core-microservice": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
