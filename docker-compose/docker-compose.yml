@@ -40,7 +40,7 @@ services:
   # Use it with command: docker-compose run redis-cli
   redis-cli:
     container_name: ${NAME}_redis-cli
-    image: ${REDIS_NAME}:${REDIS_TAG}
+    image: redis:${REDIS_TAG}
     links:
       - redis
     command: redis-cli -h redis

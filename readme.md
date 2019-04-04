@@ -3,14 +3,24 @@
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
-### Let's go
-**Develop env**
+## Let's go
+#### Develop env
 
-    /*only first time*/
-    chmod +x ./develop.sh 
-    ./develop.sh -s
+**setup and run**
+
+    1. Only first time
+        chmod +x ./develop.sh 
+        ./develop.sh -s
     
-    /*utility*/
+    2. Run
+        ./develop.sh -b
+        ./develop.sh -u
+        
+    3. Test
+        localhost/api/v1/test 
+    
+**utility**
+
     ./develop.sh -b 
     ./develop.sh -u
     ./develop.sh -r
@@ -18,7 +28,7 @@
     ./develop.sh -c "exec name bash (name = one of workspace, redis, mysql or nginx"
     ./develop.sh -c "exec workspace composer update"
     ./develop.sh -c "run redis-cli"
-    
+   
      ./develop.sh --help
     -s
       Setup application use it only first time, create volumes and make workdir setup

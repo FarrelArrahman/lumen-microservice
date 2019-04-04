@@ -2,9 +2,11 @@
 
 	namespace App\Http\Controller\RESTful\v1;
 
-	use App\Http\RESTful\RestController;
+	use App\Http\Controller\RESTful\RestController;
 
 	class ExampleController extends RestController
 	{
-		//example controller
+		public function test () {
+		    return $this->response('Hello word', 200);
+        }
 	}
