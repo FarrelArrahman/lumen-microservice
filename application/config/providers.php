@@ -15,8 +15,8 @@
 		|
 		*/
 		'global' => [
-			'core' => \Core\Providers\Core\ServicesProvider::class,
-			'auth' => \Core\Providers\Core\AuthServiceProvider::class,
+			'core' => \Cosmo\Core\Providers\ServicesProvider::class,
+			'auth' => \Cosmo\Auth\AuthServiceProvider::class,
 			'app' => App\Providers\AppServiceProvider::class,
 		],
 
@@ -44,7 +44,7 @@
 		'alias' => [],
 
 		'middlewares' => [
-			\Core\Http\Middleware\CorsMiddleware::class
+			\Cosmo\Core\Http\Middleware\CorsMiddleware::class
 		],
 
 		'route_middlewares' => [],

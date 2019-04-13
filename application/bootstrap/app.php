@@ -42,7 +42,7 @@ $app->withEloquent();
 */
 
 //Load Manager Providers of Framework
-$app->register(Core\Providers\ManagerServiceProvider::class);
+$app->register(Cosmo\Core\Providers\ManagerServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
