@@ -305,17 +305,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/cosmo-microservice.git",
-                "reference": "6530851c101a4732299f1974aa7e06dc2382f5e8"
+                "reference": "1d5d80904f2b52a7af4495c87586a99e2fb6418d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/cosmo-microservice/zipball/6530851c101a4732299f1974aa7e06dc2382f5e8",
-                "reference": "6530851c101a4732299f1974aa7e06dc2382f5e8",
+                "url": "https://api.github.com/repos/FabrizioCafolla/cosmo-microservice/zipball/1d5d80904f2b52a7af4495c87586a99e2fb6418d",
+                "reference": "1d5d80904f2b52a7af4495c87586a99e2fb6418d",
                 "shasum": ""
             },
             "require": {
                 "fabrizio-cafolla/cache-system": "~1.0",
-                "fabrizio-cafolla/resources-manager": "~1.0",
+                "fabrizio-cafolla/front-manager": "~1.0",
                 "fabrizio-cafolla/response-http": "~1.0",
                 "league/flysystem": "^1.0",
                 "league/fractal": "^0.17.0",
@@ -367,20 +367,20 @@
                 "redis",
                 "rest"
             ],
-            "time": "2019-04-13T08:35:49+00:00"
+            "time": "2019-04-13T15:52:25+00:00"
         },
         {
-            "name": "fabrizio-cafolla/resources-manager",
-            "version": "1.0.0",
+            "name": "fabrizio-cafolla/front-manager",
+            "version": "1.0.0-rc",
             "source": {
                 "type": "git",
-                "url": "https://github.com/FabrizioCafolla/resources-manager.git",
-                "reference": "292f6a63b82a1995ea03068cf36bfd5d15ae1bae"
+                "url": "https://github.com/FabrizioCafolla/front-manager.git",
+                "reference": "5e3a5764cb795c17272e19f5108b1ff11851ec67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/resources-manager/zipball/292f6a63b82a1995ea03068cf36bfd5d15ae1bae",
-                "reference": "292f6a63b82a1995ea03068cf36bfd5d15ae1bae",
+                "url": "https://api.github.com/repos/FabrizioCafolla/front-manager/zipball/5e3a5764cb795c17272e19f5108b1ff11851ec67",
+                "reference": "5e3a5764cb795c17272e19f5108b1ff11851ec67",
                 "shasum": ""
             },
             "require": {
@@ -394,7 +394,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "ResourcesManager\\": "src/ResourcesManager"
+                    "FrontManager\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -417,7 +417,7 @@
                 "opengraph",
                 "resources"
             ],
-            "time": "2019-01-24T14:01:14+00:00"
+            "time": "2019-04-13T15:43:07+00:00"
         },
         {
             "name": "fabrizio-cafolla/response-http",

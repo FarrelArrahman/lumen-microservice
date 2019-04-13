@@ -14,25 +14,31 @@ use ResponseHTTP\Response\HttpResponse;
 class RestController extends BaseController
 {
     /**
-     * @var \Core\Services\Api\ApiService
+     * @var \Cosmo\Api\ApiService
      */
     public $api;
 
     /**
-     * @var \Core\Services\Auth\AuthService
+     * @var \Cosmo\Auth\AuthService
      */
     public $auth;
 
     /**
-     * @var \CacheSystem\Services\CacheService
+     * @var \CacheSystem\Services\CacheBuilder
      */
     public $cache;
+
+	/**
+	 * @var \FrontManager\Factory\ManagerFactory
+	 */
+    public $manager;
 
     public function __construct()
     {
         $this->api = app('service.api');
         $this->auth = app('service.auth');
         $this->cache = app('service.cache.builder');
+        $this->manager = app('factory.manager');
     }
 
     /**

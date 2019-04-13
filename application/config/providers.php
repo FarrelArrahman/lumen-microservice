@@ -17,6 +17,8 @@
 		'global' => [
 			'core' => \Cosmo\Core\Providers\ServicesProvider::class,
 			'auth' => \Cosmo\Auth\AuthServiceProvider::class,
+			'response' => \ResponseHTTP\Response\Laravel\Providers\ResponseServiceProvider::class,
+			'front-manager' => \FrontManager\Providers\FrontManagerServiceProvider::class,
 			'app' => App\Providers\AppServiceProvider::class,
 		],
 
