@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4bea1aaf8a4ec746315bf45d80888a96",
+    "content-hash": "daa5e8fc8654ee5e598de1ae0959967c",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -240,7 +240,7 @@
         },
         {
             "name": "fabrizio-cafolla/cache-system",
-            "version": "dev-beta",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/cache-system.git",
@@ -301,22 +301,22 @@
         },
         {
             "name": "fabrizio-cafolla/cosmo-microservice",
-            "version": "dev-beta",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/cosmo-microservice.git",
-                "reference": "442a023c8629ac4855b3106e6a98e86c93f20e68"
+                "reference": "2bc227bd338da5d4fa11d452bea68c91ae3c9ba2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/cosmo-microservice/zipball/442a023c8629ac4855b3106e6a98e86c93f20e68",
-                "reference": "442a023c8629ac4855b3106e6a98e86c93f20e68",
+                "url": "https://api.github.com/repos/FabrizioCafolla/cosmo-microservice/zipball/2bc227bd338da5d4fa11d452bea68c91ae3c9ba2",
+                "reference": "2bc227bd338da5d4fa11d452bea68c91ae3c9ba2",
                 "shasum": ""
             },
             "require": {
-                "fabrizio-cafolla/cache-system": "dev-beta",
-                "fabrizio-cafolla/front-manager": "dev-beta",
-                "fabrizio-cafolla/service-response": "dev-beta",
+                "fabrizio-cafolla/cache-system": "dev-develop",
+                "fabrizio-cafolla/front-manager": "dev-develop",
+                "fabrizio-cafolla/service-response": "dev-develop",
                 "league/flysystem": "^1.0",
                 "league/fractal": "^0.17.0",
                 "php": "^7.1.3",
@@ -367,11 +367,11 @@
                 "redis",
                 "rest"
             ],
-            "time": "2019-04-20T11:20:07+00:00"
+            "time": "2019-04-20T13:57:06+00:00"
         },
         {
             "name": "fabrizio-cafolla/front-manager",
-            "version": "dev-beta",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/front-manager.git",
@@ -421,7 +421,7 @@
         },
         {
             "name": "fabrizio-cafolla/service-response",
-            "version": "dev-beta",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/service-response.git",

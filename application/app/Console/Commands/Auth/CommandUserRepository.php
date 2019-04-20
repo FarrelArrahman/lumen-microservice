@@ -8,11 +8,9 @@
 
 	namespace App\Repositories;
 
-	use Core\Repository\Eloquent\RepositoryAbstract;
-	use Illuminate\Container\Container as App;
+	use Cosmo\Core\Repository\Eloquent\RepositoryAbstract;
 	use Illuminate\Support\Facades\Hash;
 	use Illuminate\Support\Facades\Validator;
-	use ServiceResponse;
 
 	class UserRepository extends RepositoryAbstract
 	{

@@ -8,7 +8,6 @@
 	use Illuminate\Database\Eloquent\Model;
 	use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 	use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-	use ServiceResponse\Laravel\Traits\ModelREST;
 	use Tymon\JWTAuth\Contracts\JWTSubject;
 
 
@@ -21,7 +20,7 @@
 		AuthorizableContract,
 		JWTSubject
 	{
-		use Authenticatable, Authorizable, ModelREST;
+		use Authenticatable, Authorizable;
 		/**
 		 * The attributes that are mass assignable.
 		 *
@@ -36,18 +35,6 @@
 		 * @var array
 		 */
 		protected $hidden = ['created_at', 'updated_at'];
-
-		public function __construct(array $attributes = [])
-		{
-			$this->bootREST();
-			parent::__construct($attributes);
-		}
-
-		private function bootREST()
-		{
-			$this->setBasicUri();
-			$this->setLinks();
-		}
 
 		public function setPasswordAttribute($value)
 		{

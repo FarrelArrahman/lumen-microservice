@@ -9,9 +9,7 @@
 	namespace App\Models;
 
 	use Illuminate\Database\Eloquent\Model;
-	use ServiceResponse\Response\Traits\ModelREST;
 
 	class Example extends Model
 	{
-		use ModelREST;
 	}
