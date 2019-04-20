@@ -305,12 +305,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/cosmo-microservice.git",
-                "reference": "9da049465d7fe444669a0f65aa06f733f2ab2b2e"
+                "reference": "442a023c8629ac4855b3106e6a98e86c93f20e68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/cosmo-microservice/zipball/9da049465d7fe444669a0f65aa06f733f2ab2b2e",
-                "reference": "9da049465d7fe444669a0f65aa06f733f2ab2b2e",
+                "url": "https://api.github.com/repos/FabrizioCafolla/cosmo-microservice/zipball/442a023c8629ac4855b3106e6a98e86c93f20e68",
+                "reference": "442a023c8629ac4855b3106e6a98e86c93f20e68",
                 "shasum": ""
             },
             "require": {
@@ -367,7 +367,7 @@
                 "redis",
                 "rest"
             ],
-            "time": "2019-04-20T09:31:28+00:00"
+            "time": "2019-04-20T11:20:07+00:00"
         },
         {
             "name": "fabrizio-cafolla/front-manager",
@@ -425,12 +425,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/service-response.git",
-                "reference": "198f9db76748e2bb95683df63af4e68c0c4ba107"
+                "reference": "eaec90b4d1ab07c5ef6af2caf29342a94c3affce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/service-response/zipball/198f9db76748e2bb95683df63af4e68c0c4ba107",
-                "reference": "198f9db76748e2bb95683df63af4e68c0c4ba107",
+                "url": "https://api.github.com/repos/FabrizioCafolla/service-response/zipball/eaec90b4d1ab07c5ef6af2caf29342a94c3affce",
+                "reference": "eaec90b4d1ab07c5ef6af2caf29342a94c3affce",
                 "shasum": ""
             },
             "require": {
@@ -473,7 +473,7 @@
                 "rest",
                 "symfony"
             ],
-            "time": "2019-04-20T08:44:02+00:00"
+            "time": "2019-04-20T13:26:02+00:00"
         },
         {
             "name": "illuminate/auth",
