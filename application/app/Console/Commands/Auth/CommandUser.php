@@ -8,9 +8,8 @@
 	use Illuminate\Database\Eloquent\Model;
 	use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 	use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-	use ResponseHTTP\Response\Traits\ModelREST;
+	use ServiceResponse\Laravel\Traits\ModelREST;
 	use Tymon\JWTAuth\Contracts\JWTSubject;
-	use Spatie\Permission\Traits\HasRoles;
 
 
 	/**
@@ -22,7 +21,7 @@
 		AuthorizableContract,
 		JWTSubject
 	{
-		use Authenticatable, Authorizable, HasRoles, ModelREST;
+		use Authenticatable, Authorizable, ModelREST;
 		/**
 		 * The attributes that are mass assignable.
 		 *

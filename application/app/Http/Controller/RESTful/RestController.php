@@ -9,7 +9,7 @@
 namespace App\Http\Controller\RESTful;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
-use ResponseHTTP\Response\HttpResponse;
+use ServiceResponse\Response\HttpResponse;
 
 class RestController extends BaseController
 {
@@ -49,7 +49,7 @@ class RestController extends BaseController
      * @param array $headers
      * @param bool $json
      *
-     * @return \ResponseHTTP\Response\HttpResponse
+     * @return \ServiceResponse\Response\HttpResponse
      */
     public function response($content = null, int $status = 200, array $headers = array(), bool $json = false)
     {

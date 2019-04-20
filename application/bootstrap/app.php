@@ -32,7 +32,7 @@ $app->withEloquent();
 | Manager Service Provider
 |--------------------------------------------------------------------------
 |
-| The automatic providers manager loads the providers included in config/providers.php file
+| The automatic providers manager loads the providers included in config/manager.php file
 | If you want to load new providers just enter in the array(global, local, production)
 | 'name'  => \path\NameProvider::class
 | This will allow you to better manage the loading.

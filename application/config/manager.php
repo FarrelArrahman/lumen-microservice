@@ -1,5 +1,9 @@
 <?php
 	return [
+		'configs' => [
+
+		],
+
 		/*
 		|--------------------------------------------------------------------------
 		| Providers
@@ -14,24 +18,30 @@
 		| Develop: register service providers only if the development environment is develop
 		|
 		*/
-		'global' => [
-			'core' => \Cosmo\Core\Providers\ServicesProvider::class,
-			'auth' => \Cosmo\Auth\AuthServiceProvider::class,
-			'response' => \ResponseHTTP\Response\Laravel\Providers\ResponseServiceProvider::class,
-			'front-manager' => \FrontManager\Providers\FrontManagerServiceProvider::class,
-			'app' => App\Providers\AppServiceProvider::class,
-		],
+		'providers' => [
+			'default' => true,
 
-		'production' => [
-			//
-		],
+			'global' => [
+				'core' => \Cosmo\Core\Providers\ServicesProvider::class,
+				'auth' => \Cosmo\Auth\AuthServiceProvider::class,
+				'response' => \ServiceResponse\Laravel\Providers\ResponseServiceProvider::class,
+				'cache' => \CacheSystem\CacheServiceProvider::class,
+				'front-manager' => \FrontManager\Providers\FrontManagerServiceProvider::class,
 
-		'staging' => [
-			//
-		],
+				'app' => App\Providers\AppServiceProvider::class,
+			],
 
-		'develop' => [
-			//
+			'production' => [
+				//
+			],
+
+			'staging' => [
+				//
+			],
+
+			'develop' => [
+				//
+			]
 		],
 
 		/*
@@ -51,5 +61,14 @@
 
 		'route_middlewares' => [],
 
-		'handler' => \ResponseHTTP\Response\Laravel\Exceptions\LumenHandler::class,
+		/*
+		|--------------------------------------------------------------------------
+		| Set handler
+		|--------------------------------------------------------------------------
+		|
+		| If you would use a Cosmo handler copy one of this
+		| Lumen: \ServiceResponse\Laravel\Exceptions\LumenHandler::class,
+		| Larvel: \ServiceResponse\Laravel\Exceptions\LaravelHandler::class,
+		*/
+		'handler' => \ServiceResponse\Laravel\Exceptions\LumenHandler::class,
 	];
