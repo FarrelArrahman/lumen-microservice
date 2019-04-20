@@ -425,12 +425,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FabrizioCafolla/service-response.git",
-                "reference": "eaec90b4d1ab07c5ef6af2caf29342a94c3affce"
+                "reference": "66dc0a370a351d288eac486037edc367130c9875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FabrizioCafolla/service-response/zipball/eaec90b4d1ab07c5ef6af2caf29342a94c3affce",
-                "reference": "eaec90b4d1ab07c5ef6af2caf29342a94c3affce",
+                "url": "https://api.github.com/repos/FabrizioCafolla/service-response/zipball/66dc0a370a351d288eac486037edc367130c9875",
+                "reference": "66dc0a370a351d288eac486037edc367130c9875",
                 "shasum": ""
             },
             "require": {
@@ -473,7 +473,7 @@
                 "rest",
                 "symfony"
             ],
-            "time": "2019-04-20T13:26:02+00:00"
+            "time": "2019-04-20T22:07:01+00:00"
         },
         {
             "name": "illuminate/auth",

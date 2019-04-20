@@ -9,7 +9,7 @@
 namespace App\Http\Controller\RESTful;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
-use ServiceResponse\Response\HttpResponse;
+use ServiceResponse\Response\FactoryServiceResponse;
 
 class RestController extends BaseController
 {
@@ -33,26 +33,17 @@ class RestController extends BaseController
 	 */
     public $manager;
 
+	/**
+	 * @var \ServiceResponse\Response\Factory\FactoryServiceResponse
+	 */
+    public $response;
+
     public function __construct()
     {
         $this->api = app('service.api');
         $this->auth = app('service.auth');
         $this->cache = app('service.cache.builder');
         $this->manager = app('factory.manager');
-    }
-
-    /**
-     *   Helper function to create Response http
-     *
-     * @param null $content
-     * @param int $status
-     * @param array $headers
-     * @param bool $json
-     *
-     * @return \ServiceResponse\Response\HttpResponse
-     */
-    public function response($content = null, int $status = 200, array $headers = array(), bool $json = false)
-    {
-        return new HttpResponse($content, $status, $headers, $json);
+        $this->response = app('factory.response');
     }
 }

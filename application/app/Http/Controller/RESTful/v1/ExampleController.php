@@ -7,6 +7,8 @@
 	class ExampleController extends RestController
 	{
 		public function test () {
-		    return $this->response('Hello word', 200);
+		    return $this->response->success()
+				->withMessage('Microservice Lumen work')
+				->withState();
         }
 	}
