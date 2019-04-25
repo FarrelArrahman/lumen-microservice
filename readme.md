@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-1.6.2--beta-green.svg)
+![](https://img.shields.io/badge/version-2.0.1--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -100,6 +100,18 @@
 **Artisan commands** to create Repository, ApiController, Provider and Transoformers (Other commands to create example file view documentation)
 
 ### Changelog
+
+  ##### v2.0.1 beta
+    -Update sh script
+    -Clean directory
+    
+  ##### v2.0.0 beta
+    -Upgrade Lumen from 5.7 to 5.8
+    -Update package: cosmo-microservice is new version of "core-microservice"
+    -Update package: front-manager is new version of "resorces-manager"
+    -Update package: service-response is new version of "service-response"
+    -Update package: cache-system is updated 
+    -Clean code
 
   ##### v1.6.2 beta
     -Update composer.json
