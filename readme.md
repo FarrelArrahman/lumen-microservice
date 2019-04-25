@@ -6,30 +6,30 @@
 ## Let's go
 #### Develop env
 
-**setup and run**
+**- setup and run**
 
     1. Only first time
-        chmod +x ./develop.sh 
-        ./develop.sh -s
+        chmod +x docker-compose/command.sh 
+        ./command.sh -s
     
     2. Run
-        ./develop.sh -b
-        ./develop.sh -u
+        ./command.sh -b
+        ./command.sh -u
         
     3. Test
         localhost/api/v1/test 
     
-**utility**
+**- utility**
 
-    ./develop.sh -b 
-    ./develop.sh -u
-    ./develop.sh -r
-    ./develop.sh -d
-    ./develop.sh -c "exec name bash (name = one of workspace, redis, mysql or nginx"
-    ./develop.sh -c "exec workspace composer update"
-    ./develop.sh -c "run redis-cli"
+    ./command.sh -b or --build or -build
+    ./command.sh -u or --update or -update
+    ./command.sh -r or
+    ./command.sh -d
+    ./command.sh -c "exec name bash (name = one of workspace, redis, mysql or nginx"
+    ./command.sh -c "exec workspace composer update"
+    ./command.sh -c "run redis-cli"
    
-     ./develop.sh --help
+     ./command.sh --help
     -s
       Setup application use it only first time, create volumes and make workdir setup
     -b
@@ -43,14 +43,33 @@
     -c
       Allows to use all the docker-compose commands. (The commands that you want to launch must be contained between " ")
       Example:
-       ./develop.sh -c "up -d"
-       ./develop.sh -c "build --no-cache"
+       ./command.sh -c "up -d"
+       ./command.sh -c "build --no-cache"
        
     /*If use normal commands*/
     cd docker-compose
     docker-compose ...
-       
-**Production env**
+    
+**- create alias command**
+
+    1. Edit .bash_aliases or .bashrc file using: 
+        nano ~/.bash_aliases
+        
+    2. Add this string*: 
+        alias microservice='cd PATH/docker-compose && ./command.sh'
+        
+    3. Save and close the file.
+    
+    4. Activate alias by typing: 
+        source ~/.bash_aliases
+        
+    5. Use it in shell:
+        microservice -help    
+        
+    *replace 'PATH' with your path (ex. /var/www/example/docker-compose)
+    *replace 'microservice' with what you want
+    
+####Production env
     
     docker build --tag microservice-lumen .
     docker run -d -p 9000:9000 --name name-of-container -it microservice-lumen /bin/bash
@@ -61,8 +80,6 @@
     
 [Wiki](https://github.com/FabrizioCafolla/microservice-lumen/wiki)
 
-[Documentation Api](https://fabriziocafolla.com/docs/microservice-lumen/)
-
 ### Features 
 
 **Doker** to start the application with `Nginx`, `PHP 7.2.2-fpm`, `MySQL` and `Redis`;
@@ -72,14 +89,10 @@
 **Services** implemented to facilitate work:
 
     -Api helpers function
-    -Response method to manage error/success/exceptions responses
+    -Rest Response method to manage error/success/exceptions responses
     -Auth for manage user and jwt token
-    -ACL method for manipulate user roles and permissions
-    -Log method to manage file log
     -Cache implements methods to manage File and Redis cache with serialization
     
-**Roles and Permissions** to assign them to users and manage routes with greater security;
-
 **Repository pattern** implemented to manage the models in an abstract way and to allow the scalability of the business logic (used to guarantee also the code cleaning)
 
 **Transformer** classes to manipulate data and better manage the recovery of related information (are transformed through functions implemented in ApiService)
