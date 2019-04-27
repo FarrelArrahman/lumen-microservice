@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-2.0.1--beta-green.svg)
+![](https://img.shields.io/badge/version-2.0.2--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -113,6 +113,9 @@
 
 ### Changelog
 
+  ##### v2.0.2 beta
+    -Update dockerfile
+
   ##### v2.0.1 beta
     -Update sh script
     -Clean directory
@@ -123,55 +126,6 @@
     -Update package: front-manager is new version of "resorces-manager"
     -Update package: service-response is new version of "service-response"
     -Update package: cache-system is updated 
-    -Clean code
-
-  ##### v1.6.2 beta
-    -Update composer.json
-    -package: core-microservice update 
-    -package: resorces-manager update 
-
-  ##### v1.6.1 beta
-    -Add controller Auth with artisan command
-    -Fixed CORS middleware
-    -Update core-microservice
-
-  ##### v1.6.0 beta
-    -Clean directory
-    -Add script to manage docker develop env
-    -Fixed Dockerfile for production uses
-
-  ##### v1.5.5 beta
-    -remove file and add exapmle
-    -fixed auth controller
-    -update package services
-    -fixed Dockerfile prod
-
-  ##### v1.5.4 beta
-    -fixed errors
-    -remove GraphQL
-    -change package framework
-
-  ##### v1.5.3 beta
-    -fixed config file
-    -fixed controllers REST e GraphQL
-    -clean code framework
-
-  ##### v1.5.2 beta
-    -fixed docker-compose mysql
-    -add docker volumes
-    -remove folder data
-    
-  ##### v1.5.1 beta
-    -fixed docker-compose file
-    -fixed setup develop env
-    -fixed volumes data
-    
-  ##### v1.5.0 beta
-    -Update directory and docker file
-    -Update core package 
-    -Update response package with new logic 
-    -Update and clean code cahce package 
-    -Fixed rest controllers
     -Clean code
 
 ## License
