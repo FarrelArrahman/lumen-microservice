@@ -77,32 +77,39 @@ cat <<-END
    -v | --version | -version
      Print version of Docker, Docker compose, and PHP
 
-   -s | --setup | -setup
+   -s | --setup   | -setup
      Setup application use it only first time, create volumes and make workdir setup
 
-   -b | --build | -build
+   -b | --build   | -build
      Build all container of docker-compose file
 
-   -u | --update | -update
+   -u | --up      | -up
      Up all container of docker-compose file with -d mode
 
-   -d | --down | -down
+   -d | --down    | -down
      Down all container started
 
-   -d | --down | -down
+   -d | --down    | -down
      Down all container started
 
-   -r | --run | -run $
+   -r | --run     | -run $
      Run container
 
    -R | --rebuild | -rebuild
      Re-build and up all container
 
-   -B | --bash | -bash
+   -B | --bash    | -bash
      Exec bash of container.
      Example:
        ./command.sh --bash workspace
        ./command.sh --bash mysql
+
+   -c | --command | -command
+     Exec compose command
+     Example:
+       ./command.sh -c -- up -d  //If parameters conflicts with script options
+       ./command.sh -c "up -d"   //If parameters conflicts with script options
+       ./command.sh -c up
 
 END
       exit 1
@@ -164,7 +171,7 @@ setup() {
 # -l is for long options with double dash like --version
 # the comma separates different long options
 # -a is for long options with single dash like -version
-options=$(getopt -l "help,version,setup,build,update,down,bash,run,rebuild" -o "h v s b u d B r R" -a -- "$@")
+options=$(getopt -l "help,version,setup,build,up,down,bash,command,run,rebuild" -o "h v s b u d B c r R" -a -- "$@")
 
 # set --:
 # If no arguments follow this option, then the positional parameters are unset. Otherwise, the positional parameters
@@ -185,34 +192,33 @@ do
             ;;
         -b|--build)
             clear
-            command "build ${3:-$NULL}"
-            finish "Build completed"
+            command "build ${@:3:$#}"
             ;;
-        -u|--update)
+        -u|--up)
             clear
-            command "up -d"
-            finish "Update completed"
+            command "up -d ${@:3:$#}"
             ;;
         -d|--down)
             clear
             command "down"
-            finish "Down completed"
             ;;
         -B|--bash)
-            if test "${3:-$NULL}" = ''
-            then
-                error "Add container name (ex. workspace, redis)"
-                exit
-            fi
             command "exec ${3} bash"
+            if [ ! ${3} ]; then
+                error "Use valid container name"
+            fi
+            ;;
+        -c|--command)
+            command ${@:3:$#}
+            if [ ${#} -le 2 ]; then
+                error "Invalid compose command"
+            fi
             ;;
         -r|--run)
-            if test "${3:-$NULL}" = ''
-            then
-                error "Add container name (ex. redis-cli)"
-                exit
+            command "run ${3}"
+            if [ ! ${3} ]; then
+                error "Invalid command"
             fi
-            command "run ${3:-$NULL}"
             ;;
         -R|--rebuild)
             clear

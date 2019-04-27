@@ -10,41 +10,53 @@
 
     1. Only first time
         chmod +x docker-compose/command.sh 
-        ./command.sh -s
+        ./command.sh --setup
     
     2. Run
-        ./command.sh -b
-        ./command.sh -u
+        ./command.sh --build
+        ./command.sh --up
         
     3. Test
         localhost/api/v1/test 
     
 **- utility**
 
-    ./command.sh -b or --build or -build
-    ./command.sh -u or --update or -update
-    ./command.sh -r or
-    ./command.sh -d
-    ./command.sh -c "exec name bash (name = one of workspace, redis, mysql or nginx"
-    ./command.sh -c "exec workspace composer update"
-    ./command.sh -c "run redis-cli"
-   
-     ./command.sh --help
-    -s
-      Setup application use it only first time, create volumes and make workdir setup
-    -b
-      Build all container of docker-compose file
-    -u
-      Up all container of docker-compose file with -d mode
-    -r
-      Build and up all container
-    -d
-      Down all container started
-    -c
-      Allows to use all the docker-compose commands. (The commands that you want to launch must be contained between " ")
-      Example:
-       ./command.sh -c "up -d"
-       ./command.sh -c "build --no-cache"
+    -v | --version | -version
+    Print version of Docker, Docker compose, and PHP
+    
+    -s | --setup   | -setup
+    Setup application use it only first time, create volumes and make workdir setup
+    
+    -b | --build   | -build
+    Build all container of docker-compose file
+    
+    -u | --up      | -up
+    Up all container of docker-compose file with -d mode
+    
+    -d | --down    | -down
+    Down all container started
+    
+    -d | --down    | -down
+    Down all container started
+    
+    -r | --run     | -run $
+    Run container
+    
+    -R | --rebuild | -rebuild
+    Re-build and up all container
+    
+    -B | --bash    | -bash
+    Exec bash of container.
+        Example:
+        ./command.sh --bash workspace
+        ./command.sh --bash mysql
+    
+    -c | --command | -command
+    Exec compose command
+        Example:
+        ./command.sh -c -- up -d  //If parameters conflicts with script options
+        ./command.sh -c "up -d"   //If parameters conflicts with script options
+        ./command.sh -c up
        
     /*If use normal commands*/
     cd docker-compose
