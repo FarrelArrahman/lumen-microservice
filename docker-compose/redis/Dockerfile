@@ -1,4 +1,4 @@
-ARG TAG
+ARG TAG=5.0
 
 FROM redis:$TAG
 

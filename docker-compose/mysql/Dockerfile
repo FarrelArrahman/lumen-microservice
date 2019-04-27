@@ -1,4 +1,4 @@
-ARG TAG
+ARG TAG=5.7
 
 FROM mysql:$TAG
 

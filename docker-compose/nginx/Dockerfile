@@ -1,4 +1,4 @@
-ARG TAG
+ARG TAG=1.10
 
 FROM nginx:$TAG
 

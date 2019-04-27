@@ -1,4 +1,4 @@
-FROM php:7.2.2-fpm
+FROM php:7.3.4-fpm
 
 # Mantainer Microservice-lumen image
 MAINTAINER Fabrizio Cafolla info@fabriziocafolla.com
@@ -13,7 +13,7 @@ RUN buildDeps=" \
         libjpeg-dev \
         unzip \
     " \
-    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y $buildDeps $runtimeDeps\
+    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y $buildDeps $runtimeDeps\
     && docker-php-ext-install pdo_mysql xsl mbstring zip opcache pcntl\
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd \
@@ -22,7 +22,7 @@ RUN buildDeps=" \
 
 # Run install git
 RUN apt-get update && \
-    apt-get install -y git
+    apt-get install --no-install-recommends -y git
 
 # Add file app in image
 COPY application /var/www
