@@ -19,14 +19,8 @@
 		|
 		*/
 		'providers' => [
-			'default' => true,
-
 			'global' => [
-				'core' => \Kosmosx\Framework\Core\Providers\ServicesProvider::class,
-				'auth' => \Kosmosx\Auth\AuthServiceProvider::class,
-				'response' => \Kosmosx\Response\Laravel\Providers\ResponseServiceProvider::class,
-				'cache' => \Kosmosx\Cache\CacheServiceProvider::class,
-				'frontend' => \Kosmosx\Frontend\Providers\FrontendServiceProvider::class,
+				'kosmosx' => \Kosmosx\Framework\Providers\KosmosxServiceProvider::class,
 
 				'app' => App\Providers\AppServiceProvider::class,
 			],
@@ -67,8 +61,8 @@
 		|--------------------------------------------------------------------------
 		|
 		| If you would use a Cosmo handler copy one of this
-		| Lumen: \ServiceResponse\Laravel\Exceptions\LumenHandler::class,
-		| Larvel: \ServiceResponse\Laravel\Exceptions\LaravelHandler::class,
+		| Lumen: \Kosmosx\Response\Laravel\Exceptions\LumenHandler::class,
+		| Larvel: \Kosmosx\Response\Laravel\Exceptions\LaravelHandler::class,
 		*/
 		'handler' => \Kosmosx\Response\Laravel\Exceptions\LumenHandler::class,
 	];

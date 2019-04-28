@@ -14,36 +14,51 @@ use ServiceResponse\Response\FactoryServiceResponse;
 class RestController extends BaseController
 {
     /**
-     * @var \Cosmo\Api\ApiService
+     * @var \Kosmosx\Support\Api\ApiService
      */
     public $api;
 
     /**
-     * @var \Cosmo\Auth\AuthService
+     * @var \Kosmosx\Auth\AuthService
      */
     public $auth;
 
     /**
-     * @var \CacheSystem\Services\CacheBuilder
+     * @var \Kosmosx\Cache\Services\CacheBuilder
      */
     public $cache;
 
 	/**
-	 * @var \FrontManager\Factory\ManagerFactory
+	 * @var \Kosmosx\Frontend\Factory\ManagerFactory
 	 */
     public $manager;
 
 	/**
-	 * @var \ServiceResponse\Response\Factory\FactoryServiceResponse
+	 * @var \Kosmosx\Response\Factory\FactoryResponse
 	 */
     public $response;
 
     public function __construct()
     {
-        $this->api = app('service.api');
-        $this->auth = app('service.auth');
-        $this->cache = app('service.cache.builder');
-        $this->manager = app('factory.manager');
-        $this->response = app('factory.response');
+        $this->api = $this->resolve('service.api');
+        $this->auth = $this->resolve('service.auth');
+        $this->cache = $this->resolve('service.cache.builder');
+        $this->manager = $this->resolve('factory.manager');
+        $this->response = $this->resolve('factory.response');
     }
+
+	/**
+	 * Resolve instance
+	 *
+	 * @param string $class
+	 * @param array $parameters
+	 * @return \Laravel\Lumen\Application|mixed|null
+	 */
+    private function resolve(string $class, array $parameters = []) {
+    	try {
+    		return app($class,$parameters);
+		} catch (\Exception $e){
+			return null; //@TODO return null object
+		}
+	}
 }

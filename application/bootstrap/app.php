@@ -42,7 +42,7 @@ $app->withEloquent();
 */
 
 //Load Manager Providers of Framework
-$app->register(Kosmosx\Framework\Core\Providers\ManagerServiceProvider::class);
+$app->register(Kosmosx\Framework\Providers\ManagerServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
