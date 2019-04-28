@@ -1411,6 +1411,61 @@
             "time": "2019-04-17T14:14:38+00:00"
         },
         {
+            "name": "kosmosx/auth",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KosmosX/auth.git",
+                "reference": "da403cda621517e0120d4514d6aa0f25597f37ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KosmosX/auth/zipball/da403cda621517e0120d4514d6aa0f25597f37ee",
+                "reference": "da403cda621517e0120d4514d6aa0f25597f37ee",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "tymon/jwt-auth": "1.0.*@dev"
+            },
+            "type": "package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Kosmosx\\Auth\\AuthServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kosmosx\\Auth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabrizio Cafolla",
+                    "email": "developer@fabriziocafolla.com"
+                }
+            ],
+            "description": "Auth service for Laravel / Lumen framework.",
+            "keywords": [
+                "api",
+                "auth",
+                "framework",
+                "jwt",
+                "laravel",
+                "lumen"
+            ],
+            "time": "2019-04-28T12:14:10+00:00"
+        },
+        {
             "name": "kosmosx/cache",
             "version": "dev-develop",
             "source": {
@@ -1477,15 +1532,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/framework.git",
-                "reference": "0e8fb37059dbe34603df78b839c45bc06286c305"
+                "reference": "274822e54d47f47dcef6950a4646bbda48d9f930"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/framework/zipball/0e8fb37059dbe34603df78b839c45bc06286c305",
-                "reference": "0e8fb37059dbe34603df78b839c45bc06286c305",
+                "url": "https://api.github.com/repos/KosmosX/framework/zipball/274822e54d47f47dcef6950a4646bbda48d9f930",
+                "reference": "274822e54d47f47dcef6950a4646bbda48d9f930",
                 "shasum": ""
             },
             "require": {
+                "kosmosx/auth": "dev-develop",
                 "kosmosx/cache": "dev-develop",
                 "kosmosx/frontend": "dev-develop",
                 "kosmosx/response": "dev-develop",
@@ -1496,7 +1552,6 @@
             },
             "replace": {
                 "kosmosx/api": "self.version",
-                "kosmosx/auth": "self.version",
                 "kosmosx/core": "self.version",
                 "kosmosx/status": "self.version"
             },
@@ -1538,7 +1593,7 @@
                 "redis",
                 "rest"
             ],
-            "time": "2019-04-28T09:40:45+00:00"
+            "time": "2019-04-28T10:30:07+00:00"
         },
         {
             "name": "kosmosx/frontend",

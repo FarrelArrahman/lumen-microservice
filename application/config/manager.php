@@ -23,10 +23,10 @@
 
 			'global' => [
 				'core' => \Kosmosx\Framework\Core\Providers\ServicesProvider::class,
-				'auth' => \Kosmosx\Framework\Auth\AuthServiceProvider::class,
+				'auth' => \Kosmosx\Auth\AuthServiceProvider::class,
 				'response' => \Kosmosx\Response\Laravel\Providers\ResponseServiceProvider::class,
 				'cache' => \Kosmosx\Cache\CacheServiceProvider::class,
-				'front-manager' => \Kosmosx\Frontend\Providers\FrontendServiceProvider::class,
+				'frontend' => \Kosmosx\Frontend\Providers\FrontendServiceProvider::class,
 
 				'app' => App\Providers\AppServiceProvider::class,
 			],
@@ -56,7 +56,7 @@
 		'alias' => [],
 
 		'middlewares' => [
-			\Cosmo\Core\Http\Middleware\CorsMiddleware::class
+			\Kosmosx\Auth\Middleware\CorsMiddleware::class
 		],
 
 		'route_middlewares' => [],
@@ -70,5 +70,5 @@
 		| Lumen: \ServiceResponse\Laravel\Exceptions\LumenHandler::class,
 		| Larvel: \ServiceResponse\Laravel\Exceptions\LaravelHandler::class,
 		*/
-		'handler' => \ServiceResponse\Laravel\Exceptions\LumenHandler::class,
+		'handler' => \Kosmosx\Response\Laravel\Exceptions\LumenHandler::class,
 	];
