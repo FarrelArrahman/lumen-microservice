@@ -22,11 +22,11 @@
 			'default' => true,
 
 			'global' => [
-				'core' => \Cosmo\Core\Providers\ServicesProvider::class,
-				'auth' => \Cosmo\Auth\AuthServiceProvider::class,
-				'response' => \ServiceResponse\Laravel\Providers\ResponseServiceProvider::class,
-				'cache' => \CacheSystem\CacheServiceProvider::class,
-				'front-manager' => \FrontManager\Providers\FrontManagerServiceProvider::class,
+				'core' => \Kosmosx\Framework\Core\Providers\ServicesProvider::class,
+				'auth' => \Kosmosx\Framework\Auth\AuthServiceProvider::class,
+				'response' => \Kosmosx\Response\Laravel\Providers\ResponseServiceProvider::class,
+				'cache' => \Kosmosx\Cache\CacheServiceProvider::class,
+				'front-manager' => \Kosmosx\Frontend\Providers\FrontendServiceProvider::class,
 
 				'app' => App\Providers\AppServiceProvider::class,
 			],

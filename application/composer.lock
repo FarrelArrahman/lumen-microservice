@@ -4,244 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1c8abf12d27801fad8a5b22507c5582",
+    "content-hash": "893669b1a312829ebafd4ba477e1cff2",
     "packages": [
-        {
-            "name": "cosmo-microservice/cache-system",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CosmoMicroservice/cache-system.git",
-                "reference": "cbab92ec998b0b76bf30a8c88d491c6da86ea092"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CosmoMicroservice/cache-system/zipball/cbab92ec998b0b76bf30a8c88d491c6da86ea092",
-                "reference": "cbab92ec998b0b76bf30a8c88d491c6da86ea092",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/redis": ">=5.7",
-                "laravel/lumen-framework": ">=5.7",
-                "php": ">=7.1.3",
-                "predis/predis": "^1.1"
-            },
-            "type": "lumen-package",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "CacheSystem\\CacheServiceProvider"
-                    ],
-                    "aliases": {
-                        "CacheService": "CacheSystem\\Facades\\CacheService",
-                        "CacheFile": "CacheSystem\\Facades\\CacheFile",
-                        "CacheRedis": "CacheSystem\\Facades\\CacheRedis"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "CacheSystem\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabrizio Cafolla",
-                    "email": "info@fabriziocafolla.com"
-                }
-            ],
-            "description": "Cache service for Lumen Framework.",
-            "keywords": [
-                "cache",
-                "framework",
-                "laravel",
-                "lumen",
-                "redis"
-            ],
-            "time": "2019-04-27T17:49:46+00:00"
-        },
-        {
-            "name": "cosmo-microservice/cosmo",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CosmoMicroservice/cosmo.git",
-                "reference": "1cafa2789295dae11702156a222d5757ff0d5afd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CosmoMicroservice/cosmo/zipball/1cafa2789295dae11702156a222d5757ff0d5afd",
-                "reference": "1cafa2789295dae11702156a222d5757ff0d5afd",
-                "shasum": ""
-            },
-            "require": {
-                "cosmo-microservice/cache-system": "dev-develop",
-                "cosmo-microservice/front-manager": "dev-develop",
-                "cosmo-microservice/service-response": "dev-develop",
-                "league/flysystem": "^1.0",
-                "league/fractal": "^0.17.0",
-                "php": "^7.1.3",
-                "tymon/jwt-auth": "1.0.*@dev"
-            },
-            "replace": {
-                "cosmo/api": "self.version",
-                "cosmo/auth": "self.version",
-                "cosmo/core": "self.version",
-                "cosmo/status": "self.version"
-            },
-            "type": "lumen",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Cosmo\\Core\\Providers\\ManagerServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Cosmo\\": "src/cosmo"
-                },
-                "files": [
-                    "src/cosmo/Core/Helpers/CustomHelpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabrizio Cafolla",
-                    "email": "developer@fabriziocafolla.com"
-                }
-            ],
-            "description": "Framework of Microservice Lumen.",
-            "keywords": [
-                "cache",
-                "framework",
-                "laravel",
-                "lumen",
-                "redis",
-                "rest"
-            ],
-            "time": "2019-04-27T18:01:02+00:00"
-        },
-        {
-            "name": "cosmo-microservice/front-manager",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CosmoMicroservice/front-manager.git",
-                "reference": "d5c9e5fd4686f61a81ef95d7546b45cf59482ba2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CosmoMicroservice/front-manager/zipball/d5c9e5fd4686f61a81ef95d7546b45cf59482ba2",
-                "reference": "d5c9e5fd4686f61a81ef95d7546b45cf59482ba2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1.3"
-            },
-            "type": "package",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FrontManager\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabrizio Cafolla",
-                    "email": "developer@fabriziocafolla.com",
-                    "homepage": "https://fabriziocafolla.com",
-                    "role": "Developer"
-                }
-            ],
-            "keywords": [
-                "laravel",
-                "lumen",
-                "manager",
-                "metatag",
-                "opengraph",
-                "resources"
-            ],
-            "time": "2019-04-27T17:56:13+00:00"
-        },
-        {
-            "name": "cosmo-microservice/service-response",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CosmoMicroservice/service-response.git",
-                "reference": "97c0aa061d4aa4680c1f4c3880d9b55c08f11ec9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CosmoMicroservice/service-response/zipball/97c0aa061d4aa4680c1f4c3880d9b55c08f11ec9",
-                "reference": "97c0aa061d4aa4680c1f4c3880d9b55c08f11ec9",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1.3",
-                "symfony/http-kernel": "^4.2"
-            },
-            "replace": {
-                "serviceresponse/laravel": "self.version",
-                "serviceresponse/response": "self.version"
-            },
-            "type": "package",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ServiceResponse\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabrizio Cafolla",
-                    "email": "developer@fabriziocafolla.com",
-                    "homepage": "https://fabriziocafolla.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Response service for Symfony & Laravel/Lumen Framework.",
-            "keywords": [
-                "http",
-                "laravel",
-                "lumen",
-                "response",
-                "rest",
-                "symfony"
-            ],
-            "time": "2019-04-27T17:42:16+00:00"
-        },
         {
             "name": "doctrine/inflector",
             "version": "v1.3.0",
@@ -1647,6 +1411,239 @@
             "time": "2019-04-17T14:14:38+00:00"
         },
         {
+            "name": "kosmosx/cache",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KosmosX/cache.git",
+                "reference": "cb6e47addae0e41786746a0f7eda49c12570e1d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KosmosX/cache/zipball/cb6e47addae0e41786746a0f7eda49c12570e1d1",
+                "reference": "cb6e47addae0e41786746a0f7eda49c12570e1d1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/redis": ">=5.7",
+                "laravel/lumen-framework": ">=5.7",
+                "php": ">=7.1.3",
+                "predis/predis": "^1.1"
+            },
+            "type": "lumen-package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Kosmosx\\Cache\\CacheServiceProvider"
+                    ],
+                    "aliases": {
+                        "CacheBuilder": "Kosmosx\\Cache\\Facades\\CacheBuilder",
+                        "CacheFile": "Kosmosx\\Cache\\Facades\\CacheFile",
+                        "CacheRedis": "Kosmosx\\Cache\\Facades\\CacheRedis"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kosmosx\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabrizio Cafolla",
+                    "email": "info@fabriziocafolla.com"
+                }
+            ],
+            "description": "Cache service for Laravel / Lumen Framework.",
+            "keywords": [
+                "cache",
+                "framework",
+                "laravel",
+                "lumen",
+                "redis"
+            ],
+            "time": "2019-04-28T08:59:31+00:00"
+        },
+        {
+            "name": "kosmosx/framework",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KosmosX/framework.git",
+                "reference": "0e8fb37059dbe34603df78b839c45bc06286c305"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KosmosX/framework/zipball/0e8fb37059dbe34603df78b839c45bc06286c305",
+                "reference": "0e8fb37059dbe34603df78b839c45bc06286c305",
+                "shasum": ""
+            },
+            "require": {
+                "kosmosx/cache": "dev-develop",
+                "kosmosx/frontend": "dev-develop",
+                "kosmosx/response": "dev-develop",
+                "league/flysystem": "^1.0",
+                "league/fractal": "^0.17.0",
+                "php": "^7.1.3",
+                "tymon/jwt-auth": "1.0.*@dev"
+            },
+            "replace": {
+                "kosmosx/api": "self.version",
+                "kosmosx/auth": "self.version",
+                "kosmosx/core": "self.version",
+                "kosmosx/status": "self.version"
+            },
+            "type": "lumen",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Kosmosx\\Framework\\Core\\Providers\\ManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kosmosx\\Framework\\": "src/cosmo"
+                },
+                "files": [
+                    "src/cosmo/Core/Helpers/CustomHelpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabrizio Cafolla",
+                    "email": "developer@fabriziocafolla.com"
+                }
+            ],
+            "description": "Framework of Microservice Lumen.",
+            "keywords": [
+                "cache",
+                "framework",
+                "laravel",
+                "lumen",
+                "redis",
+                "rest"
+            ],
+            "time": "2019-04-28T09:40:45+00:00"
+        },
+        {
+            "name": "kosmosx/frontend",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KosmosX/frontend.git",
+                "reference": "61fcd95e35869090794e8648097b402a9ea6f3d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KosmosX/frontend/zipball/61fcd95e35869090794e8648097b402a9ea6f3d1",
+                "reference": "61fcd95e35869090794e8648097b402a9ea6f3d1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3"
+            },
+            "type": "package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kosmosx\\Frontend\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabrizio Cafolla",
+                    "email": "developer@fabriziocafolla.com",
+                    "homepage": "https://fabriziocafolla.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Frontend manager for resources and metatag",
+            "keywords": [
+                "laravel",
+                "lumen",
+                "manager",
+                "metatag",
+                "opengraph",
+                "resources"
+            ],
+            "time": "2019-04-28T09:08:46+00:00"
+        },
+        {
+            "name": "kosmosx/response",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KosmosX/response.git",
+                "reference": "19e1ae184d670c9bf39d40a8128f27691f9481f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KosmosX/response/zipball/19e1ae184d670c9bf39d40a8128f27691f9481f8",
+                "reference": "19e1ae184d670c9bf39d40a8128f27691f9481f8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "symfony/http-kernel": "^4.2"
+            },
+            "type": "package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kosmosx\\Response\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabrizio Cafolla",
+                    "email": "developer@fabriziocafolla.com",
+                    "homepage": "https://fabriziocafolla.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Response service for Symfony & Laravel/Lumen Framework.",
+            "keywords": [
+                "http",
+                "laravel",
+                "lumen",
+                "response",
+                "rest",
+                "symfony"
+            ],
+            "time": "2019-04-28T09:36:04+00:00"
+        },
+        {
             "name": "laravel/lumen-framework",
             "version": "v5.8.5",
             "source": {
@@ -2080,16 +2077,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.17.0",
+            "version": "2.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "9b49d637ad009e5e211142bc7492adcb19dbd645"
+                "reference": "96acbc0c03782e8115156dd4dd8b736267155066"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/9b49d637ad009e5e211142bc7492adcb19dbd645",
-                "reference": "9b49d637ad009e5e211142bc7492adcb19dbd645",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/96acbc0c03782e8115156dd4dd8b736267155066",
+                "reference": "96acbc0c03782e8115156dd4dd8b736267155066",
                 "shasum": ""
             },
             "require": {
@@ -2136,7 +2133,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-04-17T08:51:36+00:00"
+            "time": "2019-04-27T18:04:27+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -5131,7 +5128,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "cosmo-microservice/cosmo": 20
+        "kosmosx/framework": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
