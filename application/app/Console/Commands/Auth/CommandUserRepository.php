@@ -8,9 +8,11 @@
 
 	namespace App\Repositories;
 
-	use Cosmo\Core\Repository\Eloquent\RepositoryAbstract;
+	use Kosmosx\Framework\Repository\Eloquent\RepositoryAbstract;
 	use Illuminate\Support\Facades\Hash;
 	use Illuminate\Support\Facades\Validator;
+	use Illuminate\Support\Arr;
+	use Kosmosx\Support\Factory\SupportFactory;
 
 	class UserRepository extends RepositoryAbstract
 	{
@@ -50,7 +52,7 @@
 		 */
 		public function updatePassword(array $data, $id, $attribute = "id")
 		{
-			if (array_has($data, 'password'))
+			if (Arr::has($data, 'password'))
 				data_set($data, 'password', Hash::make($data["password"]));
 
 			return $this->update($data, $id, $attribute);
@@ -70,14 +72,14 @@
 			$rules = $rules ?: $this->rules($type);
 
 			if (!isset($request))
-				return $this->service->fail(404, array(), "Rules not validate");
+				return SupportFactory::fail(404, array(), "Rules not validate");
 
 			$validator = Validator::make($request, $rules);
 			if ($validator->fails()) {
-				return  $this->service->fail(400, $validator->errors()->toArray(), "Rules not validate");
+				return  SupportFactory::fail(400, $validator->errors()->toArray(), "Rules not validate");
 			}
 
-			return $this->service->success(200, array(), "Rules validate success");
+			return SupportFactory::success(200, array(), "Rules validate success");
 		}
 
 		/** Use rules based on request

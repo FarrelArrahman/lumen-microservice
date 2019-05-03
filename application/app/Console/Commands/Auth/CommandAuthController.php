@@ -10,7 +10,6 @@
 
 	use App\Http\Controller\RESTful\RestController;
 	use App\Repositories\UserRepository;
-	use ACLService;
 	use Illuminate\Http\Request;
 
 	class AuthController extends RestController
@@ -45,11 +44,11 @@
 			try {
 				$token = $this->auth->jwt->attempt($credentials);
 				if (!$token)
-					return $this->response()->errorNotFound();
+					return $this->response->notFound();
 			} catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
-				return $this->response()->errorInternal('Could not create token.');
+				return $this->response->internal('Could not create token.');
 			}
-			return $this->response()->successData(compact('token'));
+			return $this->response->successData(compact('token'));
 		}
 
 
@@ -73,11 +72,11 @@
 
 				$token = $this->auth->jwt->fromUser($user);
 				if (!$token)
-					return $this->response()->errorInternal();
+					return $this->response->nternal();
 
-				return $this->response()->successData(compact('user', 'token'));
+				return $this->response->successData(compact('user', 'token'));
 			}
-			return $this->response()->withValidation($validator->data(), true)->errorBadRequest();
+			return $this->response->badRequest()->withValidation($validator->data(), true);
 		}
 
 		/**
@@ -96,12 +95,8 @@
 		 */
 		public function invalidate()
 		{
-			$status = $this->auth->invalidate(true);
-
-			if ($status->isSuccess())
-				return $this->response()->success()->withMessage($status->message());
-			else
-				return $this->response()->errorException("Error not invalidate");
+			$this->auth->invalidate(true);
+			return $this->response->success()->withMessage("Token is invalidated");
 		}
 
 		/**
@@ -109,13 +104,7 @@
 		 */
 		public function refresh()
 		{
-			$status = $this->auth->refresh(true);
-
-			if ($status->isSuccess())
-				return $this->response($status->data('token'))
-					->withMessage($status->message())
-					->success();
-			else
-				return $this->response()->errorException("Error not refreshed");
+			$token = $this->auth->refresh(true);
+			return $this->response->successData($token)->withMessage("Token is refreshed");
 		}
 	}

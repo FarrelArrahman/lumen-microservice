@@ -9,14 +9,13 @@
 namespace App\Http\Controller\RESTful;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
-use ServiceResponse\Response\FactoryServiceResponse;
 
 class RestController extends BaseController
 {
     /**
      * @var \Kosmosx\Support\Api\ApiService
      */
-    public $api;
+    public $support;
 
     /**
      * @var \Kosmosx\Auth\AuthService
@@ -40,10 +39,10 @@ class RestController extends BaseController
 
     public function __construct()
     {
-        $this->api = $this->resolve('service.api');
         $this->auth = $this->resolve('service.auth');
-        $this->cache = $this->resolve('service.cache.builder');
-        $this->manager = $this->resolve('factory.manager');
+        $this->cache = $this->resolve('factory.cache');
+		$this->support = $this->resolve('factory.support');
+		$this->manager = $this->resolve('factory.manager');
         $this->response = $this->resolve('factory.response');
     }
 

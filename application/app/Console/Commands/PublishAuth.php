@@ -12,7 +12,7 @@
 		 *
 		 * @var string
 		 */
-		protected $signature = 'microservice:publish:auth {--force : Overwrite any existing files.}';
+		protected $signature = 'microservice:init:auth {--force : Overwrite any existing files.}';
 
 		/**
 		 * The console command description.
