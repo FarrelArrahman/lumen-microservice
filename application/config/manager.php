@@ -1,9 +1,5 @@
 <?php
 	return [
-		'configs' => [
-
-		],
-
 		/*
 		|--------------------------------------------------------------------------
 		| Providers
@@ -50,7 +46,7 @@
 		'alias' => [],
 
 		'middlewares' => [
-			\Kosmosx\Auth\Middleware\CorsMiddleware::class
+			App\Http\Middleware\CorsMiddleware::class
 		],
 
 		'route_middlewares' => [],
