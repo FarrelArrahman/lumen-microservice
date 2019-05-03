@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-2.0.2--beta-green.svg)
+![](https://img.shields.io/badge/version-2.0.3--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -81,20 +81,35 @@
     *replace 'PATH' with your path (ex. /var/www/example/docker-compose)
     *replace 'microservice' with what you want
     
-####Production env
-    
+#### Production env
+
+**- manual builds** 
+
+    //build and run microservice
     docker build --tag microservice-lumen .
     docker run -d -p 9000:9000 --name name-of-container -it microservice-lumen /bin/bash
-    docker exec -it name-of-container bash
 
-    /*or pull image from dockerhub (tagname: develop or latest)*/
+    //enter in microservice bash     
+    docker exec -it name-of-container bash
+    
+    //stop and start microservice
+    docker stop name-of-container
+    docker start name-of-container
+
+[manual push](https://docs.docker.com/engine/reference/commandline/push/) in registry 
+
+**- automatic builds** 
+
+    //pull image from dockerhub (tagname: develop or latest)
     docker pull fabriziocaf/microservice-lumen:tagname
     
-[Wiki](https://github.com/FabrizioCafolla/microservice-lumen/wiki)
+[docker hub example](https://hub.docker.com/r/fabriziocaf/microservice-lumen) with microservice-lumen.
+
+If you want create automatic builds for your repository [see here](https://hub.docker.com/r/fabriziocaf/microservice-lumen).
 
 ### Features 
 
-**Doker** to start the application with `Nginx`, `PHP 7.2.2-fpm`, `MySQL` and `Redis`;
+**Doker** to start the application with `Nginx 1.10`, `PHP 7.3.4-fpm`, `MySQL 5.7` and `Redis 5.0`;
 
 **JWT** for the authentication of routes usable with the implemented service;
 
@@ -112,6 +127,13 @@
 **Artisan commands** to create Repository, ApiController, Provider and Transoformers (Other commands to create example file view documentation)
 
 ### Changelog
+
+  ##### v2.0.3 beta
+    -Revert Dockerfile
+    -Fixed console command Auth
+    -Update composer json
+    -Fixed config manager
+    -Add CorsMiddleware
 
   ##### v2.0.2 beta
     -Update dockerfile
