@@ -11,6 +11,7 @@ RUN buildDeps=" \
         mysql-client \
         libfreetype6-dev \
         libjpeg-dev \
+        libzip-dev \
         unzip \
     " \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y $buildDeps $runtimeDeps\
