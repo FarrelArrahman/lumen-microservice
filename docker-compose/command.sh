@@ -203,7 +203,7 @@ do
             command "down"
             ;;
         -B|--bash)
-            command "exec ${3} bash"
+            command "exec ${3} /bin/sh"
             if [ ! ${3} ]; then
                 error "Use valid container name"
             fi

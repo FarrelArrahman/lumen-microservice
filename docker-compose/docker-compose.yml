@@ -16,9 +16,12 @@ services:
         - 3306
     volumes:
         - mysql_dump:/var/lib/mysql
+    networks:
+      - microservice
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
+
 
   ####################################################################################################
   # The Redis Server
@@ -36,11 +39,15 @@ services:
         - 6379
     volumes:
         - redis_dump:/data
+    networks:
+      - microservice
 
   # Use it with command: docker-compose run redis-cli
   redis-cli:
     container_name: ${NAME}_redis-cli
     image: redis:${REDIS_TAG}
+    networks:
+      - microservice
     links:
       - redis
     command: redis-cli -h redis
@@ -61,6 +68,9 @@ services:
     links:
       - mysql
       - redis
+    networks:
+      - proxy
+      - microservice
 
   ####################################################################################################
   # The Web Server
@@ -75,9 +85,15 @@ services:
     working_dir: /var/www
     ports:
       - "80:80"
+    networks:
+      - proxy
     depends_on:
       - workspace
 
 volumes:
   mysql_dump:
   redis_dump:
+
+networks:
+  proxy: {}
+  microservice: {}

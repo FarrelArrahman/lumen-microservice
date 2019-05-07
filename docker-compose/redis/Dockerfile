@@ -1,4 +1,4 @@
-ARG TAG=5.0
+ARG TAG=5.0.4-alpine3.9
 
 FROM redis:$TAG
 
