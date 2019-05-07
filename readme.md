@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-2.0.3--beta-green.svg)
+![](https://img.shields.io/badge/version-2.0.4--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -109,7 +109,7 @@ If you want create automatic builds for your repository [see here](https://hub.d
 
 ### Features 
 
-**Doker** to start the application with `Nginx 1.10`, `PHP 7.3.4-fpm`, `MySQL 5.7` and `Redis 5.0`;
+**Doker** to start the application with `Nginx 1.15.12-alpine`, `PHP 7.3.5-fpm-alpine3.9`, `MySQL 5.7` and `Redis 5.0.4-alpine3.9`;
 
 **JWT** for the authentication of routes usable with the implemented service;
 
@@ -127,6 +127,11 @@ If you want create automatic builds for your repository [see here](https://hub.d
 **Artisan commands** to create Repository, ApiController, Provider and Transoformers (Other commands to create example file view documentation)
 
 ### Changelog
+
+  ##### v2.0.4 beta
+    -Use Alpine image in Dockerfile 
+    -Fixed script
+    -Add networks in compose file
 
   ##### v2.0.3 beta
     -Revert Dockerfile
