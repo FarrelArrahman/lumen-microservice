@@ -23,14 +23,14 @@ class RestController extends BaseController
     public $auth;
 
     /**
-     * @var \Kosmosx\Cache\Services\CacheBuilder
+     * @var \Kosmosx\Cache\Services\CacheFactory
      */
     public $cache;
 
 	/**
-	 * @var \Kosmosx\Frontend\Factory\ManagerFactory
+	 * @var \Kosmosx\Frontend\FrontendFactory
 	 */
-    public $manager;
+    public $frontend;
 
 	/**
 	 * @var \Kosmosx\Response\Factory\FactoryResponse
@@ -42,7 +42,7 @@ class RestController extends BaseController
         $this->auth = $this->resolve('service.auth');
         $this->cache = $this->resolve('factory.cache');
 		$this->support = $this->resolve('factory.support');
-		$this->manager = $this->resolve('factory.manager');
+		$this->frontend = $this->resolve('factory.frontend');
         $this->response = $this->resolve('factory.response');
     }
 
