@@ -1,4 +1,4 @@
-ARG TAG=1.10
+ARG TAG=1.15.12-alpine
 
 FROM nginx:$TAG
 
