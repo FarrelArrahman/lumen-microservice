@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-2.0.4--beta-green.svg)
+![](https://img.shields.io/badge/version-2.0.5--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -63,11 +63,15 @@
     docker-compose ...
     
 **- create alias command**
-
+    
+    0. Edit command.sh
+        #ENV
+        app_name=APP_NAME
+    
     1. Edit .bash_aliases or .bashrc file using: 
         nano ~/.bash_aliases
         
-    2. Add this string*: 
+    2. Add this string**: 
         alias microservice='cd PATH/docker-compose && ./command.sh'
         
     3. Save and close the file.
@@ -78,8 +82,8 @@
     5. Use it in shell:
         microservice -help    
         
-    *replace 'PATH' with your path (ex. /var/www/example/docker-compose)
-    *replace 'microservice' with what you want
+    (*) replace APP_NAME with name of your app. Docker-compose use it with option -p for exec all command
+    (**) replace 'PATH' with your path (ex. /var/www/example/docker-compose), and  replace 'microservice' with what you want
     
 #### Production env
 
@@ -127,6 +131,11 @@ If you want create automatic builds for your repository [see here](https://hub.d
 **Artisan commands** to create Repository, ApiController, Provider and Transoformers (Other commands to create example file view documentation)
 
 ### Changelog
+
+  ##### v2.0.5 beta
+    -Update docker-compose file
+    -Create network for app
+    -Update command.sh
 
   ##### v2.0.4 beta
     -Use Alpine image in Dockerfile 

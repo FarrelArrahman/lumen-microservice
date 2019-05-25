@@ -4,20 +4,20 @@ services:
   # Creating container MySQL
   ####################################################################################################
   mysql:
-    container_name: ${MYSQL_NAME}_${MYSQL_TAG}
+    container_name: ${MYSQL_NAME}
     build:
       context: .
       dockerfile: mysql/Dockerfile
       args:
         - TAG=${MYSQL_TAG}
     ports:
-        - "3306:3306"
+      - "3306:3306"
     expose:
         - 3306
     volumes:
         - mysql_dump:/var/lib/mysql
     networks:
-      - microservice
+      - net_db
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -27,27 +27,25 @@ services:
   # The Redis Server
   ####################################################################################################
   redis:
-    container_name: ${REDIS_NAME}_${REDIS_TAG}
+    container_name: ${REDIS_NAME}
     build:
       context: .
       dockerfile: redis/Dockerfile
       args:
         - TAG=${REDIS_TAG}
-    ports:
-        - "6379:6379"
     expose:
         - 6379
     volumes:
         - redis_dump:/data
     networks:
-      - microservice
+      - net_db
 
   # Use it with command: docker-compose run redis-cli
   redis-cli:
-    container_name: ${NAME}_redis-cli
+    container_name: ${REDIS_NAME}-cli
     image: redis:${REDIS_TAG}
     networks:
-      - microservice
+      - net_db
     links:
       - redis
     command: redis-cli -h redis
@@ -55,45 +53,52 @@ services:
   ####################################################################################################
   # The Application
   ####################################################################################################
-  workspace:
-    container_name: ${WORKSPACE_NAME}_${WORKSPACE_TAG}
+  backend:
+    container_name: ${BACKEND_NAME}
     build:
       context: .
-      dockerfile: workspace/Dockerfile
+      dockerfile: backend/Dockerfile
       args:
-        - TAG=${WORKSPACE_TAG}
+        - TAG=${BACKEND_TAG}
     working_dir: /var/www
+    expose:
+        - 9000
     volumes:
       - ../application:/var/www
     links:
       - mysql
       - redis
     networks:
-      - proxy
-      - microservice
+      - net_webserver
+      - net_backend
+      - net_db
 
   ####################################################################################################
   # The Web Server
   ####################################################################################################
-  nginx:
-    container_name: ${NGINX_NAME}_${NGINX_TAG}
+  webserver:
+    container_name: ${WEBSERVER_NAME}
     build:
       context: .
-      dockerfile: nginx/Dockerfile
+      dockerfile: webserver/Dockerfile
       args:
-        - TAG=${NGINX_TAG}
+        - TAG=${WEBSERVER_TAG}
     working_dir: /var/www
     ports:
       - "80:80"
     networks:
-      - proxy
+      - net_webserver
+      - net_proxy_gateway
     depends_on:
-      - workspace
+      - backend
 
 volumes:
   mysql_dump:
   redis_dump:
 
 networks:
-  proxy: {}
-  microservice: {}
+  net_webserver: {}
+  net_backend: {}
+  net_db: {}
+  net_proxy_gateway:
+    external: true
