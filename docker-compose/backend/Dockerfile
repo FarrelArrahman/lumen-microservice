@@ -31,10 +31,10 @@ ENV persistent_deps \
 # Set working directory as
 WORKDIR /var/www
 
-COPY ./workspace/php.ini /usr/local/etc/php/php.ini
+COPY ./backend/php.ini /usr/local/etc/php/php.ini
 
 # Copy xdebug configuration for remote debugging
-COPY ./workspace/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY ./backend/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 RUN sed -i "s/xdebug.remote_autostart=0/xdebug.remote_autostart=1/" /usr/local/etc/php/conf.d/xdebug.ini && \
     sed -i "s/xdebug.remote_enable=0/xdebug.remote_enable=1/" /usr/local/etc/php/conf.d/xdebug.ini && \

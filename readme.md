@@ -63,11 +63,15 @@
     docker-compose ...
     
 **- create alias command**
-
+    
+    0. Edit command.sh
+        #ENV
+        app_name=APP_NAME
+    
     1. Edit .bash_aliases or .bashrc file using: 
         nano ~/.bash_aliases
         
-    2. Add this string*: 
+    2. Add this string**: 
         alias microservice='cd PATH/docker-compose && ./command.sh'
         
     3. Save and close the file.
@@ -78,8 +82,8 @@
     5. Use it in shell:
         microservice -help    
         
-    *replace 'PATH' with your path (ex. /var/www/example/docker-compose)
-    *replace 'microservice' with what you want
+    (*) replace APP_NAME with name of your app. Docker-compose use it with option -p for exec all command
+    (**) replace 'PATH' with your path (ex. /var/www/example/docker-compose), and  replace 'microservice' with what you want
     
 #### Production env
 

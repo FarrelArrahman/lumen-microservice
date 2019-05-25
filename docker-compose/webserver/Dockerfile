@@ -5,4 +5,4 @@ FROM nginx:$TAG
 MAINTAINER Fabrizio Cafolla developer@fabriziocafolla.com
 
 # ADD data in image when build
-ADD ./nginx/vhosts.conf /etc/nginx/conf.d/default.conf
+ADD ./webserver/vhosts.conf /etc/nginx/conf.d/default.conf

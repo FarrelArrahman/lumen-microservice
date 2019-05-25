@@ -15,6 +15,10 @@ cyan='\e[46m'
 dark='\e[100m'
 white='\e[107m'
 
+#ENV
+app_name=microservice
+service_backend=backend
+
 message() {
     message_color=${2:-$default}
 
@@ -53,7 +57,7 @@ error(){
 
 #Function to exec docker-compose commands
 command () {
-    docker-compose $@
+    docker-compose -p $app_name $@
 }
 
 version() {
@@ -64,9 +68,6 @@ version() {
 
     head "Docker compose version"
     docker-compose -v
-
-    head "Workspace PHP version"
-    command "exec workspace php -v"
 }
 
 showHelp() {
@@ -75,7 +76,7 @@ showHelp() {
     head "Help, script usage: $(basename $0)"
 cat <<-END
    -v | --version | -version
-     Print version of Docker, Docker compose, and PHP
+     Print version of Docker, Docker compose
 
    -s | --setup   | -setup
      Setup application use it only first time, create volumes and make workdir setup
@@ -114,18 +115,48 @@ cat <<-END
 END
       exit 1
 }
-setupVolumes(){
+
+setupApplication() {
+    clear
+
+    step "Step 0/4"
+    command "build mysql"               #Build and up container
+    command "build redis"               #Build and up container
+    command "build webserver"               #Build and up container
+    command "build $service_backend"               #Build and up container
+    command "up -d webserver"
+
+    step "Step 1/4"
+    head "Directory permission /var/www"
+    command "exec $service_backend chgrp www-data -R /var/www && chmod 775 -R /var/www && chmod g+s /var/www"
+
+    step "Step 2/4"
+    head "Composer install"
+    command "exec $service_backend composer install"
+
+    step "Step 3/4"
+    head "Copy .env file"
+    command "exec $service_backend cp .env.example .env"
+
+    step "Step 4/4"
+    head "Generate jwt secret key"
+    command "exec $service_backend php artisan jwt:secret"
+
+    finish "Finish application setup"
+}
+
+createVolumes(){
     clear
 
     step "Step 1/2"
-    head "create redis volume"
+    head "Create redis volume"
     docker volume create --driver local \
     --opt type=nfs \
     redis_dump
 
 
     step "Step 2/2"
-    head "mysql volume"
+    head "Create mysql volume"
     docker volume create --driver local \
     --opt type=nfs \
     mysql_dump
@@ -133,37 +164,27 @@ setupVolumes(){
     finish "Finish volumes setup"
 }
 
-setupApplication() {
+createNetworks(){
     clear
 
-    command "up -d --build"               #Build and up container
+    head "Create net_proxy_gateway network"
+    docker network create --attachable \
+    --driver bridge \
+    net_proxy_gateway
 
-    step "Step 1/4"
-    head "Permission of workspace /var/www"
-    docker-compose exec workspace chgrp www-data -R /var/www && chmod 775 -R /var/www && chmod g+s /var/www
-
-    step "Step 2/4"
-    head "Composer install"
-    docker-compose exec workspace composer install
-
-    step "Step 3/4"
-    head "Copy .env file"
-    docker-compose exec workspace cp .env.example .env
-
-    step "Step 4/4"
-    head "Generate jwt secret key"
-    docker-compose exec workspace php artisan jwt:secret
-
-    finish "Finish application setup"
+    finish "Finish networks setup"
 }
+
+
 
 #Function to setup application (only first time)
 setup() {
     cp .env.docker .env     #Copy env file
-    setupVolumes
-    sleep 1.0
-    setupApplication
+    createNetworks
     sleep 0.3
+    createVolumes
+    sleep 0.3
+    setupApplication
 }
 
 # $@ is all command line parameters passed to the script.
