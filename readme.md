@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-2.0.4--beta-green.svg)
+![](https://img.shields.io/badge/version-2.0.5--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -131,6 +131,11 @@ If you want create automatic builds for your repository [see here](https://hub.d
 **Artisan commands** to create Repository, ApiController, Provider and Transoformers (Other commands to create example file view documentation)
 
 ### Changelog
+
+  ##### v2.0.5 beta
+    -Update docker-compose file
+    -Create network for app
+    -Update command.sh
 
   ##### v2.0.4 beta
     -Use Alpine image in Dockerfile 

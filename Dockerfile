@@ -1,7 +1,7 @@
 FROM php:7.3.5-fpm-alpine3.9
 
-# Mantainer Microservice-lumen image
-MAINTAINER Fabrizio Cafolla info@fabriziocafolla.com
+LABEL mantainer="developer@fabriziocafolla.com"
+LABEL description="Nginx Container"
 
 ENV build_deps \
 		autoconf \
