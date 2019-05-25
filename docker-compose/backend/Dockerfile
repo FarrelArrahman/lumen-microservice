@@ -2,8 +2,8 @@ ARG TAG=7.3.5-fpm-alpine3.9
 
 FROM php:$TAG
 
-# Mantainer Microservice-lumen image
-MAINTAINER Fabrizio Cafolla info@fabriziocafolla.com
+LABEL mantainer="developer@fabriziocafolla.com"
+LABEL description="Backend Container"
 
 ENV build_deps \
 		autoconf \

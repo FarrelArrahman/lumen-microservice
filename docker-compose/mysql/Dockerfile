@@ -2,4 +2,5 @@ ARG TAG=5.7
 
 FROM mysql:$TAG
 
-MAINTAINER Fabrizio Cafolla developer@fabriziocafolla.com
+LABEL mantainer="developer@fabriziocafolla.com"
+LABEL description="MySQL Container"
