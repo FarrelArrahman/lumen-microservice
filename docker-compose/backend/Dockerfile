@@ -1,7 +1,9 @@
-FROM php:7.3.5-fpm-alpine3.9
+ARG TAG=7.3.5-fpm-alpine3.9
+
+FROM php:$TAG
 
 LABEL mantainer="developer@fabriziocafolla.com"
-LABEL description="Nginx Container"
+LABEL description="Backend Container"
 
 ENV build_deps \
 		autoconf \
@@ -22,19 +24,21 @@ ENV persistent_deps \
 		php-xml \
 		php-zip \
 		git \
-        mysql-client
+        mysql-client \
+        bash \
+        nano
 
 # Set working directory as
 WORKDIR /var/www
 
-# Copy application file in image
-COPY application /var/www
+COPY ./backend/php.ini /usr/local/etc/php/php.ini
 
-# Add permission to workdir
-RUN chown -R www-data:www-data ./* \
-    && chown -R www-data:www-data ./.* \
-    && find . -type f -exec chmod 644 {} \; \
-    && find . -type d -exec chmod 775 {} \;
+# Copy xdebug configuration for remote debugging
+COPY ./backend/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
+RUN sed -i "s/xdebug.remote_autostart=0/xdebug.remote_autostart=1/" /usr/local/etc/php/conf.d/xdebug.ini && \
+    sed -i "s/xdebug.remote_enable=0/xdebug.remote_enable=1/" /usr/local/etc/php/conf.d/xdebug.ini && \
+    sed -i "s/xdebug.cli_color=0/xdebug.cli_color=1/" /usr/local/etc/php/conf.d/xdebug.ini
 
 # Install build dependencies
 RUN apk upgrade && apk update && \
@@ -44,9 +48,10 @@ RUN apk upgrade && apk update && \
 RUN apk add --update --no-cache --virtual .persistent-dependencies $persistent_deps && \
     printf "\n" | pecl install -o -f redis && \
     rm -rf /tmp/pear && \
-    docker-php-ext-enable redis
+    docker-php-ext-enable redis && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install docker ext and remove build deps
+# Install docker ext
 RUN apk update && \
     docker-php-ext-configure gd \
         --with-gd \
@@ -60,14 +65,10 @@ RUN apk update && \
         mbstring \
         zip \
         opcache \
-        pcntl && \
-        apk del .build-dependencies
+        pcntl
 
-# composer install and init dir
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-    composer install --no-dev && \
-    rm -rf /usr/local/bin/composer* && \
-    cp .env.example .env && \
-    php artisan jwt:secret -f
-
-EXPOSE 9000
+# Run install xdebug and remove build deps
+RUN apk update && \
+    pecl install xdebug &&\
+    docker-php-ext-enable xdebug && \
+    apk del .build-dependencies
