@@ -1699,12 +1699,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/support.git",
-                "reference": "6ad842bed405c7d4ce153cd2d6be1a20fc124c22"
+                "reference": "6d0eba5af1670b75d882ab7685b3f91c78c8e4b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/support/zipball/6ad842bed405c7d4ce153cd2d6be1a20fc124c22",
-                "reference": "6ad842bed405c7d4ce153cd2d6be1a20fc124c22",
+                "url": "https://api.github.com/repos/KosmosX/support/zipball/6d0eba5af1670b75d882ab7685b3f91c78c8e4b6",
+                "reference": "6d0eba5af1670b75d882ab7685b3f91c78c8e4b6",
                 "shasum": ""
             },
             "require": {
@@ -1741,7 +1741,7 @@
                 "redis",
                 "rest"
             ],
-            "time": "2019-05-25T14:39:35+00:00"
+            "time": "2019-05-26T08:12:03+00:00"
         },
         {
             "name": "laravel/lumen-framework",
