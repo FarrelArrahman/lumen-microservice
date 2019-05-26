@@ -6,7 +6,12 @@
 ## Let's go
 #### Develop env
 
+The development environment is set up so that the docker-compose infrastructure does not conflict with other successful containers on your machine. Take advantage of the -p option of Docker so that it assigns a unique name to your app, and the names of the containers and services must be unique and not conflict with the other containers. This will allow you if you want to start more apps in a development environment without conflicts. ATTENTION to the public ports of the webserver
+
 **- setup and run**
+
+    0. Edit command.sh (not required)
+        app_name=your_app_name
 
     1. Only first time
         chmod +x docker-compose/command.sh 
@@ -19,6 +24,8 @@
     3. Test
         localhost/api/v1/test 
     
+    (*) replace APP_NAME with name of your app. Docker-compose use it with option -p for exec all command
+
 **- utility**
 
     -v | --version | -version
@@ -64,15 +71,11 @@
     
 **- create alias command**
     
-    0. Edit command.sh
-        #ENV
-        app_name=APP_NAME
-    
     1. Edit .bash_aliases or .bashrc file using: 
         nano ~/.bash_aliases
         
     2. Add this string**: 
-        alias microservice='cd PATH/docker-compose && ./command.sh'
+        alias microservice='cd PATH/docker-compose ./command.sh'
         
     3. Save and close the file.
     
@@ -82,7 +85,6 @@
     5. Use it in shell:
         microservice -help    
         
-    (*) replace APP_NAME with name of your app. Docker-compose use it with option -p for exec all command
     (**) replace 'PATH' with your path (ex. /var/www/example/docker-compose), and  replace 'microservice' with what you want
     
 #### Production env

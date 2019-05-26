@@ -3,17 +3,14 @@ services:
   ####################################################################################################
   # Creating container MySQL
   ####################################################################################################
-  mysql:
+  mysql_microservice:
     container_name: ${MYSQL_NAME}
     build:
       context: .
       dockerfile: mysql/Dockerfile
       args:
         - TAG=${MYSQL_TAG}
-    ports:
-      - "3306:3306"
-    expose:
-        - 3306
+        - EXP=${MYSQL_CONTAINER_PORT}
     volumes:
         - mysql_dump:/var/lib/mysql
     networks:
@@ -22,52 +19,49 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
 
-
   ####################################################################################################
   # The Redis Server
   ####################################################################################################
-  redis:
+  redis_microservice:
     container_name: ${REDIS_NAME}
     build:
       context: .
       dockerfile: redis/Dockerfile
       args:
         - TAG=${REDIS_TAG}
-    expose:
-        - 6379
+        - EXP=${REDIS_CONTAINER_PORT}
     volumes:
         - redis_dump:/data
     networks:
       - net_db
 
   # Use it with command: docker-compose run redis-cli
-  redis-cli:
-    container_name: ${REDIS_NAME}-cli
+  redis-cli_microservice:
+    container_name: ${REDIS_CLI_NAME}
     image: redis:${REDIS_TAG}
     networks:
       - net_db
     links:
-      - redis
+      - ${REDIS_NAME}
     command: redis-cli -h redis
 
   ####################################################################################################
   # The Application
   ####################################################################################################
-  backend:
+  backend_microservice:
     container_name: ${BACKEND_NAME}
     build:
       context: .
       dockerfile: backend/Dockerfile
       args:
         - TAG=${BACKEND_TAG}
+        - EXP=${BACKEND_CONTAINER_PORT}
     working_dir: /var/www
-    expose:
-        - 9000
     volumes:
       - ../application:/var/www
     links:
-      - mysql
-      - redis
+      - ${MYSQL_NAME}
+      - ${REDIS_NAME}
     networks:
       - net_webserver
       - net_backend
@@ -76,21 +70,22 @@ services:
   ####################################################################################################
   # The Web Server
   ####################################################################################################
-  webserver:
+  webserver_microservice:
     container_name: ${WEBSERVER_NAME}
     build:
       context: .
       dockerfile: webserver/Dockerfile
       args:
         - TAG=${WEBSERVER_TAG}
+        - EXP=${WEBSERVER_CONTAINER_PORT}
     working_dir: /var/www
     ports:
-      - "80:80"
+      - "${WEBSERVER_HOST_PORT}:${WEBSERVER_CONTAINER_PORT}"
     networks:
       - net_webserver
       - net_proxy_gateway
     depends_on:
-      - backend
+      - ${BACKEND_NAME}
 
 volumes:
   mysql_dump:

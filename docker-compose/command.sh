@@ -17,7 +17,10 @@ white='\e[107m'
 
 #ENV
 app_name=microservice
-service_backend=backend
+container_webserver=webserver_microservice
+container_backend=backend_microservice
+container_mysql=mysql_microservice
+container_redis=redis_microservice
 
 message() {
     message_color=${2:-$default}
@@ -120,27 +123,28 @@ setupApplication() {
     clear
 
     step "Step 0/4"
-    command "build mysql"               #Build and up container
-    command "build redis"               #Build and up container
-    command "build webserver"               #Build and up container
-    command "build $service_backend"               #Build and up container
-    command "up -d webserver"
+    command "build $container_mysql"               #Build and up container
+    command "build $container_redis"               #Build and up container
+    command "build $container_webserver"               #Build and up container
+    command "build $container_backend"               #Build and up container
+
+    command "up -d $container_webserver"
 
     step "Step 1/4"
     head "Directory permission /var/www"
-    command "exec $service_backend chgrp www-data -R /var/www && chmod 775 -R /var/www && chmod g+s /var/www"
+    command "exec $container_backend chgrp www-data -R /var/www && chmod 775 -R /var/www && chmod g+s /var/www"
 
     step "Step 2/4"
     head "Composer install"
-    command "exec $service_backend composer install"
+    command "exec $container_backend composer install"
 
     step "Step 3/4"
     head "Copy .env file"
-    command "exec $service_backend cp .env.example .env"
+    command "exec $container_backend cp .env.example .env"
 
     step "Step 4/4"
     head "Generate jwt secret key"
-    command "exec $service_backend php artisan jwt:secret"
+    command "exec $container_backend php artisan jwt:secret"
 
     finish "Finish application setup"
 }
