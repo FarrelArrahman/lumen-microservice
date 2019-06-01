@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-2.0.5--beta-green.svg)
+![](https://img.shields.io/badge/version-2.0.6--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -10,8 +10,10 @@ The development environment is set up so that the docker-compose infrastructure 
 
 **- setup and run**
 
-    0. Edit command.sh (not required)
+    0. Edit command.sh if you would rename app(not required)
         app_name=your_app_name
+       Edit .env.docker if you would change composer env (not required)
+        BACKEND_ENV_COMPOSER=composer.json 
 
     1. Only first time
         chmod +x docker-compose/command.sh 
@@ -23,6 +25,7 @@ The development environment is set up so that the docker-compose infrastructure 
         
     3. Test
         localhost/api/v1/test 
+        localhost/api/v1/discovery
     
     (*) replace APP_NAME with name of your app. Docker-compose use it with option -p for exec all command
 
@@ -75,7 +78,7 @@ The development environment is set up so that the docker-compose infrastructure 
         nano ~/.bash_aliases
         
     2. Add this string**: 
-        alias microservice='cd PATH/docker-compose ./command.sh'
+        alias microservice='cd PATH/docker-compose && ./command.sh'
         
     3. Save and close the file.
     
@@ -133,6 +136,10 @@ If you want create automatic builds for your repository [see here](https://hub.d
 **Artisan commands** to create Repository, ApiController, Provider and Transoformers (Other commands to create example file view documentation)
 
 ### Changelog
+
+  ##### v2.0.6 beta
+    -Update docker-compose file
+    -Add multi env for composer
 
   ##### v2.0.5 beta
     -Update docker-compose file
