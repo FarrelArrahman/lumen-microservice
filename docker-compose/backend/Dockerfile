@@ -5,7 +5,7 @@ FROM php:$TAG
 LABEL mantainer="developer@fabriziocafolla.com"
 LABEL description="Backend Container"
 
-ARG EXP=9000
+# ARG EXP=9000
 
 ENV build_deps \
 		autoconf \
@@ -75,4 +75,4 @@ RUN apk update && \
     docker-php-ext-enable xdebug && \
     apk del .build-dependencies
 
-EXPOSE $EXP
+# EXPOSE $EXP

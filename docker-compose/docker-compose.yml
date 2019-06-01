@@ -10,9 +10,10 @@ services:
       dockerfile: mysql/Dockerfile
       args:
         - TAG=${MYSQL_TAG}
-        - EXP=${MYSQL_CONTAINER_PORT}
+    expose:
+      - ${MYSQL_CONTAINER_PORT}
     volumes:
-        - mysql_dump:/var/lib/mysql
+      - mysql_dump_microservice:/var/lib/mysql
     networks:
       - net_db
     environment:
@@ -29,9 +30,10 @@ services:
       dockerfile: redis/Dockerfile
       args:
         - TAG=${REDIS_TAG}
-        - EXP=${REDIS_CONTAINER_PORT}
+    expose:
+      - ${REDIS_CONTAINER_PORT}
     volumes:
-        - redis_dump:/data
+      - redis_dump_microservice:/data
     networks:
       - net_db
 
@@ -55,7 +57,10 @@ services:
       dockerfile: backend/Dockerfile
       args:
         - TAG=${BACKEND_TAG}
-        - EXP=${BACKEND_CONTAINER_PORT}
+    expose:
+      - ${BACKEND_CONTAINER_PORT}
+    environment:
+      - COMPOSER=${BACKEND_ENV_COMPOSER}
     working_dir: /var/www
     volumes:
       - ../application:/var/www
@@ -77,7 +82,8 @@ services:
       dockerfile: webserver/Dockerfile
       args:
         - TAG=${WEBSERVER_TAG}
-        - EXP=${WEBSERVER_CONTAINER_PORT}
+    expose:
+      - ${WEBSERVER_CONTAINER_PORT}
     working_dir: /var/www
     ports:
       - "${WEBSERVER_HOST_PORT}:${WEBSERVER_CONTAINER_PORT}"
@@ -88,8 +94,8 @@ services:
       - ${BACKEND_NAME}
 
 volumes:
-  mysql_dump:
-  redis_dump:
+  mysql_dump_microservice:
+  redis_dump_microservice:
 
 networks:
   net_webserver: {}

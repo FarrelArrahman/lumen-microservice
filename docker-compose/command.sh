@@ -122,7 +122,7 @@ END
 setupApplication() {
     clear
 
-    step "Step 0/4"
+    step "Step 1/4"
     command "build $container_mysql"               #Build and up container
     command "build $container_redis"               #Build and up container
     command "build $container_webserver"               #Build and up container
@@ -130,13 +130,10 @@ setupApplication() {
 
     command "up -d $container_webserver"
 
-    step "Step 1/4"
-    head "Directory permission /var/www"
-    command "exec $container_backend chgrp www-data -R /var/www && chmod 775 -R /var/www && chmod g+s /var/www"
-
     step "Step 2/4"
     head "Composer install"
     command "exec $container_backend composer install"
+    command "exec $container_backend composer update"
 
     step "Step 3/4"
     head "Copy .env file"
@@ -156,14 +153,14 @@ createVolumes(){
     head "Create redis volume"
     docker volume create --driver local \
     --opt type=nfs \
-    redis_dump
+    redis_dump_microservice
 
 
     step "Step 2/2"
     head "Create mysql volume"
     docker volume create --driver local \
     --opt type=nfs \
-    mysql_dump
+    mysql_dump_microservice
 
     finish "Finish volumes setup"
 }
