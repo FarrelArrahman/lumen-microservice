@@ -40,7 +40,7 @@
 		'connections' => [
 			'mysql' => [
 				'driver'    => 'mysql',
-				'host'      => env('DB_HOST', 'mysql'),
+				'host'      => env('DB_HOST', 'mysql_microservice'),
 				'port'      => env('DB_PORT', 3306),
 				'database'  => env('DB_DATABASE', 'test_develop'),
 				'username'  => env('DB_USERNAME', 'root'),

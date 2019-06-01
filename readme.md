@@ -1,12 +1,19 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-2.0.5--beta-green.svg)
+![](https://img.shields.io/badge/version-2.0.6--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
 ## Let's go
 #### Develop env
 
+The development environment is set up so that the docker-compose infrastructure does not conflict with other successful containers on your machine. Take advantage of the -p option of Docker so that it assigns a unique name to your app, and the names of the containers and services must be unique and not conflict with the other containers. This will allow you if you want to start more apps in a development environment without conflicts. ATTENTION to the public ports of the webserver
+
 **- setup and run**
+
+    0. Edit command.sh if you would rename app(not required)
+        app_name=your_app_name
+       Edit .env.docker if you would change composer env (not required)
+        BACKEND_ENV_COMPOSER=composer.json 
 
     1. Only first time
         chmod +x docker-compose/command.sh 
@@ -18,7 +25,10 @@
         
     3. Test
         localhost/api/v1/test 
+        localhost/api/v1/discovery
     
+    (*) replace APP_NAME with name of your app. Docker-compose use it with option -p for exec all command
+
 **- utility**
 
     -v | --version | -version
@@ -64,10 +74,6 @@
     
 **- create alias command**
     
-    0. Edit command.sh
-        #ENV
-        app_name=APP_NAME
-    
     1. Edit .bash_aliases or .bashrc file using: 
         nano ~/.bash_aliases
         
@@ -82,7 +88,6 @@
     5. Use it in shell:
         microservice -help    
         
-    (*) replace APP_NAME with name of your app. Docker-compose use it with option -p for exec all command
     (**) replace 'PATH' with your path (ex. /var/www/example/docker-compose), and  replace 'microservice' with what you want
     
 #### Production env
@@ -131,6 +136,10 @@ If you want create automatic builds for your repository [see here](https://hub.d
 **Artisan commands** to create Repository, ApiController, Provider and Transoformers (Other commands to create example file view documentation)
 
 ### Changelog
+
+  ##### v2.0.6 beta
+    -Update docker-compose file
+    -Add multi env for composer
 
   ##### v2.0.5 beta
     -Update docker-compose file
