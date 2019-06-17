@@ -9,7 +9,7 @@
 	namespace App\Http\Controller\RESTful\v1;
 
 	use App\Http\Controller\RESTful\RestController;
-	use App\Repositories\UserRepository;
+	use App\Repositories\AuthRepository;
 	use Illuminate\Http\Request;
 
 	class AuthController extends RestController
@@ -24,10 +24,9 @@
 		/**
 		 * @Var auth instance of Auth service
 		 */
-		public function __construct()
-		{
+		public function __construct() {
 			parent::__construct();
-			$this->model = app(UserRepository::class);
+			$this->model = app(AuthRepository::class);
 		}
 
 		/**
@@ -36,19 +35,36 @@
 		 *
 		 * @param Request $request
 		 *
+		 * @Request:
+			"data": {
+				"type": "user",
+				"attributes": {
+					"email": "example@gmail.com",
+					"password":"root",
+				}
+			}
 		 * @return mixed (token) or (errors)
 		 */
-		public function authenticate(Request $request)
-		{
-			$credentials = $request->only('email', 'password');
-			try {
-				$token = $this->auth->jwt->attempt($credentials);
-				if (!$token)
-					return $this->response->notFound();
-			} catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
-				return $this->response->internal('Could not create token.');
+		public function authenticate(Request $request) {
+			$data = $this->api->parseJsonApiRequestBody($request);
+
+			$status = $this->model->validate($data);
+
+			if ($status->isFail())
+				return $this->response->badRequest()->withValidation($status->data());
+
+			if ($status->isSuccess()) {
+				try {
+					$token = $this->auth->jwt->attempt($data);
+
+					if ($token)
+						return $this->response->success()->withData(compact('token'));
+				} catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
+					return $e;
+				}
 			}
-			return $this->response->successData(compact('token'));
+
+			return $this->response->unauthorized();
 		}
 
 
@@ -59,24 +75,42 @@
 		 * user. Return a reply with the user and the token
 		 *
 		 * @param Request $request
-		 *
+		 * @Request:
+			"data": {
+				"type": "user",
+				"attributes": {
+					"email": "example@gmail.com",
+					"password":"root",
+					"confirm_password":"root"
+				}
+			}
 		 * @return mixed (user + token) or (errors)
 		 */
-		public function register(Request $request)
-		{
+		public function register(Request $request) {
+			$data = $this->api->parseJsonApiRequestBody($request);
 
-			$validator = $this->model->validateRequest($request->all(), "create");
+			$status = $this->model->validate($data, array(
+					'email' => 'required|email|unique:users,email|max:255',
+					'password' => 'required|min:6|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+					'confirm_password' => 'required|same:password',
+				)
+			);
 
-			if ($validator->isSuccess()) {
-				$user = $this->model->create($request->all());
+			if ($status->isFail())
+				return $this->response->badRequest()->withValidation($status->data());
 
-				$token = $this->auth->jwt->fromUser($user);
-				if (!$token)
-					return $this->response->nternal();
+			$status = $this->model->create($data);
 
-				return $this->response->successData(compact('user', 'token'));
+			if ($status->isSuccess()) {
+				$token = $this->auth->jwt->fromUser($status->data());
+
+				if ($token) {
+					$user = $status->data();
+					return $this->response->success()->withData(compact('user', 'token'));
+				}
 			}
-			return $this->response->badRequest()->withValidation($validator->data(), true);
+
+			return $this->response->internal();
 		}
 
 		/**
@@ -85,16 +119,14 @@
 		 *
 		 * @return \Illuminate\Http\JsonResponse
 		 */
-		public function getAuthenticatedUser()
-		{
+		public function getAuthenticatedUser() {
 			return $this->auth->getUser();
 		}
 
 		/**
 		 * @return mixed
 		 */
-		public function invalidate()
-		{
+		public function invalidate() {
 			$this->auth->invalidate(true);
 			return $this->response->success()->withMessage("Token is invalidated");
 		}
@@ -102,9 +134,10 @@
 		/**
 		 * @return mixed
 		 */
-		public function refresh()
-		{
+		public function refresh() {
 			$token = $this->auth->refresh(true);
-			return $this->response->successData($token)->withMessage("Token is refreshed");
+			return $this->response->success()
+				->withData($token)
+				->withMessage("Token is refreshed");
 		}
 	}

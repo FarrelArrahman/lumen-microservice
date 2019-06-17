@@ -4,6 +4,7 @@
 
 	use Illuminate\Console\Command;
 	use Illuminate\Filesystem\Filesystem;
+	use Illuminate\Support\Facades\Artisan;
 
 	class PublishAuth extends Command
 	{
@@ -12,7 +13,7 @@
 		 *
 		 * @var string
 		 */
-		protected $signature = 'microservice:init:auth {--force : Overwrite any existing files.}';
+		protected $signature = 'make:kosmosx:auth {--force : Overwrite any existing files.}';
 
 		/**
 		 * The console command description.
@@ -45,7 +46,7 @@
 			$this->fileMap = [
 				$fromPath.'/CommandAuthController.php' => app()->basePath('app/Http/Controller/RESTful/v1/AuthController.php'),
 				$fromPath.'/CommandUser.php' => app()->basePath('app/Models/User.php'),
-				$fromPath.'/CommandUserRepository.php' => app()->basePath('app/Repositories/UserRepository.php'),
+				$fromPath.'/CommandAuthRepository.php' => app()->basePath('app/Repositories/AuthRepository.php'),
 			];
 		}
 

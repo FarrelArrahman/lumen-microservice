@@ -66,7 +66,7 @@
 		'providers' => [
 			'jwt' => [
 				'driver' => 'eloquent',
-				'model' => env('AUTH_MODEL', App\Models\User::class)
+				'model' => env('AUTH_MODEL', App\Models\CommandUser::class)
 			]
 		],
 		/*

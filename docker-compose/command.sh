@@ -17,10 +17,11 @@ white='\e[107m'
 
 #ENV
 app_name=microservice
-container_webserver=webserver_microservice
-container_backend=backend_microservice
-container_mysql=mysql_microservice
-container_redis=redis_microservice
+
+container_webserver=webserver_${app_name}
+container_backend=backend_${app_name}
+container_mysql=mysql_${app_name}
+container_redis=redis_${app_name}
 
 message() {
     message_color=${2:-$default}
@@ -153,14 +154,14 @@ createVolumes(){
     head "Create redis volume"
     docker volume create --driver local \
     --opt type=nfs \
-    redis_dump_microservice
+    redis_dump_${app_name}
 
 
     step "Step 2/2"
     head "Create mysql volume"
     docker volume create --driver local \
     --opt type=nfs \
-    mysql_dump_microservice
+    mysql_dump_${app_name}
 
     finish "Finish volumes setup"
 }

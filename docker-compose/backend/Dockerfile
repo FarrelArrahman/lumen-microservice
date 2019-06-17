@@ -33,7 +33,8 @@ ENV persistent_deps \
 # Set working directory as
 WORKDIR /var/www
 
-COPY ./backend/php.ini /usr/local/etc/php/php.ini
+#Conflict with errors handler
+#COPY ./backend/php.ini /usr/local/etc/php/php.ini
 
 # Copy xdebug configuration for remote debugging
 COPY ./backend/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini

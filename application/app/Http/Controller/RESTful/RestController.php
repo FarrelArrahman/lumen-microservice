@@ -12,39 +12,32 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class RestController extends BaseController
 {
-    /**
-     * @var \Kosmosx\Support\Api\ApiService
-     */
-    public $support;
-
-    /**
-     * @var \Kosmosx\Auth\AuthService
-     */
-    public $auth;
-
-    /**
-     * @var \Kosmosx\Cache\Services\CacheFactory
-     */
-    public $cache;
+	/**
+	 * @var \Kosmosx\Support\Api\ApiService
+	 */
+	public $api;
 
 	/**
-	 * @var \Kosmosx\Frontend\FrontendFactory
+	 * @var \Kosmosx\Auth\AuthService
 	 */
-    public $frontend;
+	public $auth;
+
+	/**
+	 * @var \Kosmosx\Cache\Services\CacheFactory
+	 */
+	public $cache;
 
 	/**
 	 * @var \Kosmosx\Response\Factory\FactoryResponse
 	 */
-    public $response;
+	public $response;
 
-    public function __construct()
-    {
-        $this->auth = $this->resolve('service.auth');
-        $this->cache = $this->resolve('factory.cache');
-		$this->support = $this->resolve('factory.support');
-		$this->frontend = $this->resolve('factory.frontend');
-        $this->response = $this->resolve('factory.response');
-    }
+	public function __construct() {
+		$this->auth = $this->resolve('service.auth');
+		$this->api = $this->resolve('service.api');
+		$this->cache = $this->resolve('factory.cache');
+		$this->response = $this->resolve('factory.response');
+	}
 
 	/**
 	 * Resolve instance

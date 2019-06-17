@@ -10,8 +10,8 @@ services:
       dockerfile: mysql/Dockerfile
       args:
         - TAG=${MYSQL_TAG}
-    expose:
-      - ${MYSQL_CONTAINER_PORT}
+    ports:
+      - "${MYSQL_HOST_PORT}:${MYSQL_CONTAINER_PORT}"
     volumes:
       - mysql_dump_microservice:/var/lib/mysql
     networks:

@@ -8,9 +8,12 @@
 
 	namespace App\Repositories;
 
-	use Core\Repository\Eloquent\RepositoryAbstract;
+	use App\Models\Example;
+	use Kosmosx\Framework\Repository\Eloquent\RepositoryAbstract;
 
 	class ExampleRepository extends RepositoryAbstract
 	{
-		//example repository pattern
+		public function model() {
+			return Example::class;
+		}
 	}

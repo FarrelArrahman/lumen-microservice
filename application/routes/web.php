@@ -16,7 +16,7 @@
 	 */
 	$router->group(['prefix' => 'api/v1'], function () use ($router) {
 		$router->get('discovery', function () {
-			return \ApiService::discovery('v1');
+			return Discovery::discovery('v1');
 		});
 		$router->get('test', 'RESTful\v1\ExampleController@test');
 	});
