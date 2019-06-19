@@ -1,16 +1,16 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-2.0.7--beta-green.svg)
+![](https://img.shields.io/badge/version-3.0.0--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
+##Description
+Microservice Lumen è un'infrastruttura docker per poter avviare un microservizio php basato sul framework Lumen, mettendo a disposizione vari strumenti che facilitano lo sviluppatore, e dando la possibilità di avere con pochi comandi un ambiente di sviluppo/staging/produzione. Di base sono disponibili i container Nginx per il webserver, MySQL e Redis per il db e cache, e PHP 7.3 per l'applicazione, configurabili facilmente con il file di configurazione. L'ambiente di produzione o staging si differenzia poichè necessita solo dell'immagine dell'applicazione php che viene creata con il Dockerfile nella root.
+
 ## Let's go
 #### Develop env
-
-The development environment is set up so that the docker-compose infrastructure does not conflict with other successful containers on your machine. Take advantage of the -p option of Docker so that it assigns a unique name to your app, and the names of the containers and services must be unique and not conflict with the other containers. This will allow you if you want to start more apps in a development environment without conflicts. ATTENTION to the public ports of the webserver
-
 **- setup and run**
 
-    0. Edit command.sh if you would rename app(not required)
+    0. Edit command.sh if you would rename app(not required) *
         app_name=your_app_name
        Edit .env.docker if you would change composer env (not required)
         BACKEND_ENV_COMPOSER=composer.json 
@@ -27,9 +27,10 @@ The development environment is set up so that the docker-compose infrastructure 
         localhost/api/v1/test 
         localhost/api/v1/discovery
     
-    (*) replace APP_NAME with name of your app. Docker-compose use it with option -p for exec all command
-
-**- utility**
+    (*) Replace APP_NAME with name of your app. Docker-compose use it with option -p for exec all command.
+    The development environment is set up so that the docker-compose infrastructure does not conflict with other successful containers on your machine. Take advantage of the -p option of Docker so that it assigns a unique name to your app, and the names of the containers and services must be unique and not conflict with the other containers. This will allow you if you want to start more apps in a development environment without conflicts
+    
+**- command.sh**
 
     -v | --version | -version
     Print version of Docker, Docker compose, and PHP
@@ -77,7 +78,7 @@ The development environment is set up so that the docker-compose infrastructure 
     1. Edit .bash_aliases or .bashrc file using: 
         nano ~/.bash_aliases
         
-    2. Add this string**: 
+    2. Add this string*: 
         alias microservice='cd PATH/docker-compose && ./command.sh'
         
     3. Save and close the file.
@@ -88,7 +89,7 @@ The development environment is set up so that the docker-compose infrastructure 
     5. Use it in shell:
         microservice -help    
         
-    (**) replace 'PATH' with your path (ex. /var/www/example/docker-compose), and  replace 'microservice' with what you want
+    (*) replace 'PATH' with your path (ex. /var/www/example/docker-compose), and  replace 'microservice' with what you want
     
 #### Production env
 
@@ -120,22 +121,21 @@ If you want create automatic builds for your repository [see here](https://hub.d
 
 **Doker** to start the application with `Nginx 1.15.12-alpine`, `PHP 7.3.5-fpm-alpine3.9`, `MySQL 5.7` and `Redis 5.0.4-alpine3.9`;
 
-**JWT** for the authentication of routes usable with the implemented service;
+**Kosmos X**
 
-**Services** implemented to facilitate work:
-
-    -Api helpers function
-    -Rest Response method to manage error/success/exceptions responses
-    -Auth for manage user and jwt token
-    -Cache implements methods to manage File and Redis cache with serialization
+    -Framework: require all package and implement RepositoryPattern service and more
+    -Support: services for manipulate data with Transformer, Api discovery, and more;
+    -Response: create rest response more efficently;
+    -Cache: services for manage File and Redis cache;
+    -Auth: implement JWT auth;
+    -Helpers: function to help developer;
     
-**Repository pattern** implemented to manage the models in an abstract way and to allow the scalability of the business logic (used to guarantee also the code cleaning)
-
-**Transformer** classes to manipulate data and better manage the recovery of related information (are transformed through functions implemented in ApiService)
-  
-**Artisan commands** to create Repository, ApiController, Provider and Transoformers (Other commands to create example file view documentation)
-
+    *Artisan commands to create Repository, ApiController, Provider and Transoformers
+    
 ### Changelog
+
+  ##### v3.0.0 beta
+    -Refactorin and clean code
 
   ##### v2.0.7 beta
     -Fix docker file
