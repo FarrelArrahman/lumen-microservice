@@ -6,7 +6,7 @@
  * Time: 23.59
  */
 
-namespace App\Http\Controller\RESTful;
+namespace App\Http\Controller;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
 

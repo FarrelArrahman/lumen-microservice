@@ -1,8 +1,8 @@
 <?php
 
-	namespace App\Http\Controller\RESTful\v1;
+	namespace App\Http\Controller\v1;
 
-	use App\Http\Controller\RESTful\RestController;
+	use App\Http\Controller\RestController;
 
 	class ExampleController extends RestController
 	{

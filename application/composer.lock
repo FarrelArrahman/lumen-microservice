@@ -1418,19 +1418,20 @@
         },
         {
             "name": "kosmosx/auth",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/auth.git",
-                "reference": "6604dd73a2ff8d0a262e2fd9512d5e4d8df7fa62"
+                "reference": "eb2c5f0258c1d5166972e5dbf0cdabfa6a991a0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/auth/zipball/6604dd73a2ff8d0a262e2fd9512d5e4d8df7fa62",
-                "reference": "6604dd73a2ff8d0a262e2fd9512d5e4d8df7fa62",
+                "url": "https://api.github.com/repos/KosmosX/auth/zipball/eb2c5f0258c1d5166972e5dbf0cdabfa6a991a0b",
+                "reference": "eb2c5f0258c1d5166972e5dbf0cdabfa6a991a0b",
                 "shasum": ""
             },
             "require": {
+                "kosmosx/helpers": "1.0.*",
                 "php": "^7.1.3",
                 "tymon/jwt-auth": "1.0.*@dev"
             },
@@ -1469,7 +1470,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2019-05-02T19:43:04+00:00"
+            "time": "2019-06-18T18:00:56+00:00"
         },
         {
             "name": "kosmosx/cache",
@@ -1477,12 +1478,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/cache.git",
-                "reference": "652f86d7a3f30a7f6b0d8a4ace51fd82f6eab9af"
+                "reference": "d4ad0548d09a988cfd8d64d9782d70c2a25a0369"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/cache/zipball/652f86d7a3f30a7f6b0d8a4ace51fd82f6eab9af",
-                "reference": "652f86d7a3f30a7f6b0d8a4ace51fd82f6eab9af",
+                "url": "https://api.github.com/repos/KosmosX/cache/zipball/d4ad0548d09a988cfd8d64d9782d70c2a25a0369",
+                "reference": "d4ad0548d09a988cfd8d64d9782d70c2a25a0369",
                 "shasum": ""
             },
             "require": {
@@ -1534,23 +1535,23 @@
         },
         {
             "name": "kosmosx/framework",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/framework.git",
-                "reference": "e6e5f0be615520fc67a35d508ff78f1ae1c34140"
+                "reference": "3164e1c1c9590d302671dae28038a3f06cf42a7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/framework/zipball/e6e5f0be615520fc67a35d508ff78f1ae1c34140",
-                "reference": "e6e5f0be615520fc67a35d508ff78f1ae1c34140",
+                "url": "https://api.github.com/repos/KosmosX/framework/zipball/3164e1c1c9590d302671dae28038a3f06cf42a7c",
+                "reference": "3164e1c1c9590d302671dae28038a3f06cf42a7c",
                 "shasum": ""
             },
             "require": {
                 "kosmosx/auth": "1.0.*",
                 "kosmosx/cache": "1.0.*",
                 "kosmosx/helpers": "1.0.*",
-                "kosmosx/response": "1.0.*",
+                "kosmosx/laravel-response": "1.0.*",
                 "kosmosx/support": "1.0.*",
                 "league/flysystem": "^1.0",
                 "php": "^7.1.3"
@@ -1590,7 +1591,7 @@
                 "lumen",
                 "rest"
             ],
-            "time": "2019-06-14T14:11:09+00:00"
+            "time": "2019-06-18T18:10:12+00:00"
         },
         {
             "name": "kosmosx/helpers",
@@ -1642,17 +1643,70 @@
             "time": "2019-06-14T14:12:37+00:00"
         },
         {
+            "name": "kosmosx/laravel-response",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KosmosX/laravel-response.git",
+                "reference": "f7ad558f179c288894089ff821633bc1b5a13f67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KosmosX/laravel-response/zipball/f7ad558f179c288894089ff821633bc1b5a13f67",
+                "reference": "f7ad558f179c288894089ff821633bc1b5a13f67",
+                "shasum": ""
+            },
+            "require": {
+                "kosmosx/helpers": "1.0.*",
+                "kosmosx/response": "1.0.*",
+                "php": ">=7.1.3"
+            },
+            "type": "package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kosmosx\\Response\\Laravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabrizio Cafolla",
+                    "email": "developer@fabriziocafolla.com",
+                    "homepage": "https://fabriziocafolla.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Response service for Laravel and Lumen Framework.",
+            "keywords": [
+                "http",
+                "laravel",
+                "lumen",
+                "response",
+                "rest",
+                "symfony"
+            ],
+            "time": "2019-06-18T17:36:57+00:00"
+        },
+        {
             "name": "kosmosx/response",
             "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/response.git",
-                "reference": "8c3eef83017fbb4d8816643463565eba399e37a9"
+                "reference": "607add640bfc0803800311fec7d33e03ff3b7b62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/response/zipball/8c3eef83017fbb4d8816643463565eba399e37a9",
-                "reference": "8c3eef83017fbb4d8816643463565eba399e37a9",
+                "url": "https://api.github.com/repos/KosmosX/response/zipball/607add640bfc0803800311fec7d33e03ff3b7b62",
+                "reference": "607add640bfc0803800311fec7d33e03ff3b7b62",
                 "shasum": ""
             },
             "require": {
@@ -1695,21 +1749,21 @@
         },
         {
             "name": "kosmosx/support",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/support.git",
-                "reference": "f4a818f6ec5ea087b580c25977aa4bee9e7b2e24"
+                "reference": "7205029a584996278e2826bd8e2407eba55906ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/support/zipball/f4a818f6ec5ea087b580c25977aa4bee9e7b2e24",
-                "reference": "f4a818f6ec5ea087b580c25977aa4bee9e7b2e24",
+                "url": "https://api.github.com/repos/KosmosX/support/zipball/7205029a584996278e2826bd8e2407eba55906ef",
+                "reference": "7205029a584996278e2826bd8e2407eba55906ef",
                 "shasum": ""
             },
             "require": {
                 "kosmosx/helpers": "1.0.*",
-                "league/fractal": "^0.17.0",
+                "league/fractal": "^0.18.0",
                 "php": "^7.1.3"
             },
             "type": "lumen",
@@ -1742,7 +1796,7 @@
                 "redis",
                 "rest"
             ],
-            "time": "2019-06-14T14:08:08+00:00"
+            "time": "2019-06-18T18:08:19+00:00"
         },
         {
             "name": "laravel/lumen-framework",
@@ -1969,16 +2023,16 @@
         },
         {
             "name": "league/fractal",
-            "version": "0.17.0",
+            "version": "0.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/fractal.git",
-                "reference": "a0b350824f22fc2fdde2500ce9d6851a3f275b0e"
+                "reference": "4e553dae1a9402adbe11c81430a64675dc97b4fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/a0b350824f22fc2fdde2500ce9d6851a3f275b0e",
-                "reference": "a0b350824f22fc2fdde2500ce9d6851a3f275b0e",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/4e553dae1a9402adbe11c81430a64675dc97b4fc",
+                "reference": "4e553dae1a9402adbe11c81430a64675dc97b4fc",
                 "shasum": ""
             },
             "require": {
@@ -1989,7 +2043,7 @@
                 "illuminate/contracts": "~5.0",
                 "mockery/mockery": "~0.9",
                 "pagerfanta/pagerfanta": "~1.0.0",
-                "phpunit/phpunit": "~4.0",
+                "phpunit/phpunit": "^4.8.35 || ^7.5",
                 "squizlabs/php_codesniffer": "~1.5",
                 "zendframework/zend-paginator": "~2.3"
             },
@@ -2029,7 +2083,7 @@
                 "league",
                 "rest"
             ],
-            "time": "2017-06-12T11:04:56+00:00"
+            "time": "2019-05-10T02:16:43+00:00"
         },
         {
             "name": "monolog/monolog",

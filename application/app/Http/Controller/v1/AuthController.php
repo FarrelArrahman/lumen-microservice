@@ -6,9 +6,9 @@
 	 * Time: 14.48
 	 */
 
-	namespace App\Http\Controller\RESTful\v1;
+	namespace App\Http\Controller\v1;
 
-	use App\Http\Controller\RESTful\RestController;
+	use App\Http\Controller\RestController;
 	use App\Repositories\AuthRepository;
 	use Illuminate\Http\Request;
 
@@ -49,24 +49,23 @@
 			$data = $this->api->parseJsonApiRequestBody($request);
 
 			$status = $this->model->validate($data);
-
-			if ($status->isFail())
-				return $this->response->badRequest()->withValidation($status->data());
-
 			if ($status->isSuccess()) {
 				try {
 					$token = $this->auth->jwt->attempt($data);
 
-					if ($token)
-						return $this->response->success()->withData(compact('token'));
+					if ($token) {
+						$status->setMessage('');
+						$status->setData(['data' => compact('token')]);
+					} else {
+						$status->setMessage('User not attempt');
+					}
 				} catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
-					return $e;
+					$status->setStatus(500);
 				}
 			}
 
-			return $this->response->unauthorized();
+			return $this->response::statusResponse($status);
 		}
-
 
 		/**
 		 * Register method.
@@ -76,14 +75,14 @@
 		 *
 		 * @param Request $request
 		 * @Request:
-			"data": {
-				"type": "user",
-				"attributes": {
-					"email": "example@gmail.com",
-					"password":"root",
-					"confirm_password":"root"
-				}
-			}
+		"data": {
+		"type": "user",
+		"attributes": {
+		"email": "example@gmail.com",
+		"password":"root",
+		"confirm_password":"root"
+		}
+		}
 		 * @return mixed (user + token) or (errors)
 		 */
 		public function register(Request $request) {
@@ -96,21 +95,22 @@
 				)
 			);
 
-			if ($status->isFail())
-				return $this->response->badRequest()->withValidation($status->data());
-
-			$status = $this->model->create($data);
-
 			if ($status->isSuccess()) {
-				$token = $this->auth->jwt->fromUser($status->data());
+				$status = $this->model->create($data);
 
+				$token = $this->auth->jwt->fromUser($status->data());
 				if ($token) {
-					$user = $status->data();
-					return $this->response->success()->withData(compact('user', 'token'));
+					$user = $this->api->serializer(new JsonApiSerializer())
+						->item($status->data(), new UserTransformer());
+
+					$status->setMessage('');
+					$status->setData(['data' => [compact('user', 'token')]]);
+				} else {
+					$status->setMessage('User not registered');
 				}
 			}
 
-			return $this->response->internal();
+			return $this->response::statusResponse($status);
 		}
 
 		/**
