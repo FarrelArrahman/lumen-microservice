@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-3.0.0--beta-green.svg)
+![](https://img.shields.io/badge/version-3.0.1--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -145,7 +145,11 @@ If you want create automatic builds for your repository [see here](https://hub.d
 ### Changelog
 
   ##### v3.0.0 beta
-    -Refactorin and clean code
+    -Fix context docker-compose file
+    -Fix context Dockerfile 
+    
+  ##### v3.0.0 beta
+    -Refactoring and clean code
 
   ##### v2.0.7 beta
     -Fix docker file
