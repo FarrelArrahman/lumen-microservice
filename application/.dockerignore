@@ -8,4 +8,4 @@ readme.md
 .env
 /.idea
 _config.yml
-application/vendor
+vendor

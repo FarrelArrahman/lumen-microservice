@@ -28,7 +28,7 @@ ENV persistent_deps \
 WORKDIR /var/www
 
 # Copy application file in image
-COPY application /var/www
+COPY . /var/www
 
 # Add permission to workdir
 RUN chown -R www-data:www-data ./* \

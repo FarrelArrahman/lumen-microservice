@@ -4,7 +4,11 @@
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
 ##Description
-Microservice Lumen è un'infrastruttura docker per poter avviare un microservizio php basato sul framework Lumen, mettendo a disposizione vari strumenti che facilitano lo sviluppatore, e dando la possibilità di avere con pochi comandi un ambiente di sviluppo/staging/produzione. Di base sono disponibili i container Nginx per il webserver, MySQL e Redis per il db e cache, e PHP 7.3 per l'applicazione, configurabili facilmente con il file di configurazione. L'ambiente di produzione o staging si differenzia poichè necessita solo dell'immagine dell'applicazione php che viene creata con il Dockerfile nella root.
+
+Microservice Lumen è un'infrastruttura docker che permette di avviare un microservizio php basato sul framework Lumen. 
+Mette a disposizione svariati strumenti e servizi che aiutano lo sviluppatore, che con pochi comandi gestisce l'ambiente di sviluppo/staging/produzione. 
+Di base sono disponibili i container Nginx per il webserver, MySQL e Redis per il db e cache, e PHP 7.3 per l'applicazione, configurabili facilmente con il file di configurazione. 
+Ricordare che l'immagine da usare in produzione o staging fa riferimento al Dockerfile presente nella dir application.
 
 ## Let's go
 #### Develop env
@@ -102,14 +106,15 @@ Microservice Lumen è un'infrastruttura docker per poter avviare un microservizi
 
     //build and run microservice
     docker build --tag microservice-lumen .
-    docker run -d -p 9000:9000 --name name-of-container -it microservice-lumen /bin/bash
+    docker run -d -p 9000:9000 --name name-of-container -it microservice-lumen /bin/sh
 
     //enter in microservice bash     
-    docker exec -it name-of-container bash
+    docker exec -it name-of-container /bin/sh
     
     //stop and start microservice
     docker stop name-of-container
     docker start name-of-container
+    docker rm name-of-container
 
 [manual push](https://docs.docker.com/engine/reference/commandline/push/) in registry 
 
