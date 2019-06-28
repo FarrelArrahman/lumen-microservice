@@ -37,7 +37,7 @@ WORKDIR /var/www
 #COPY ./backend/php.ini /usr/local/etc/php/php.ini
 
 # Copy xdebug configuration for remote debugging
-COPY ./backend/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 RUN sed -i "s/xdebug.remote_autostart=0/xdebug.remote_autostart=1/" /usr/local/etc/php/conf.d/xdebug.ini && \
     sed -i "s/xdebug.remote_enable=0/xdebug.remote_enable=1/" /usr/local/etc/php/conf.d/xdebug.ini && \

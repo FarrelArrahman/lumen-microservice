@@ -6,8 +6,8 @@ services:
   mysql_microservice:
     container_name: ${MYSQL_NAME}
     build:
-      context: .
-      dockerfile: mysql/Dockerfile
+      context: ./mysql
+      dockerfile: Dockerfile
       args:
         - TAG=${MYSQL_TAG}
     ports:
@@ -26,8 +26,8 @@ services:
   redis_microservice:
     container_name: ${REDIS_NAME}
     build:
-      context: .
-      dockerfile: redis/Dockerfile
+      context: ./redis
+      dockerfile: Dockerfile
       args:
         - TAG=${REDIS_TAG}
     expose:
@@ -53,8 +53,8 @@ services:
   backend_microservice:
     container_name: ${BACKEND_NAME}
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
       args:
         - TAG=${BACKEND_TAG}
     expose:
@@ -78,8 +78,8 @@ services:
   webserver_microservice:
     container_name: ${WEBSERVER_NAME}
     build:
-      context: .
-      dockerfile: webserver/Dockerfile
+      context: ./webserver
+      dockerfile: Dockerfile
       args:
         - TAG=${WEBSERVER_TAG}
     expose:

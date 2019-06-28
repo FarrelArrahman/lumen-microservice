@@ -8,6 +8,11 @@ Microservice Lumen è un'infrastruttura docker per poter avviare un microservizi
 
 ## Let's go
 #### Develop env
+**- require**
+    
+    Docker version 18.09.6, build 481bc77
+    docker-compose version 1.24.0, build 0aa59064
+
 **- setup and run**
 
     0. Edit command.sh if you would rename app(not required) *
