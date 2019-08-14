@@ -20,8 +20,6 @@ app_name=microservice
 
 container_webserver=webserver_${app_name}
 container_backend=backend_${app_name}
-container_mysql=mysql_${app_name}
-container_redis=redis_${app_name}
 
 message() {
     message_color=${2:-$default}
@@ -124,8 +122,6 @@ setupApplication() {
     clear
 
     step "Step 1/4"
-    command "build $container_mysql"               #Build and up container
-    command "build $container_redis"               #Build and up container
     command "build $container_webserver"               #Build and up container
     command "build $container_backend"               #Build and up container
 
@@ -147,44 +143,10 @@ setupApplication() {
     finish "Finish application setup"
 }
 
-createVolumes(){
-    clear
-
-    step "Step 1/2"
-    head "Create redis volume"
-    docker volume create --driver local \
-    --opt type=nfs \
-    redis_dump_${app_name}
-
-
-    step "Step 2/2"
-    head "Create mysql volume"
-    docker volume create --driver local \
-    --opt type=nfs \
-    mysql_dump_${app_name}
-
-    finish "Finish volumes setup"
-}
-
-createNetworks(){
-    clear
-
-    head "Create net_proxy_gateway network"
-    docker network create --attachable \
-    --driver bridge \
-    net_proxy_gateway
-
-    finish "Finish networks setup"
-}
-
-
 
 #Function to setup application (only first time)
 setup() {
     cp .env.docker .env     #Copy env file
-    createNetworks
-    sleep 0.3
-    createVolumes
     sleep 0.3
     setupApplication
 }

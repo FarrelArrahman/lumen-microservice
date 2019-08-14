@@ -64,13 +64,9 @@ services:
     working_dir: /var/www
     volumes:
       - ../application:/var/www
-    links:
-      - ${MYSQL_NAME}
-      - ${REDIS_NAME}
     networks:
       - net_webserver
-      - net_backend
-      - net_db
+      - db_global
 
   ####################################################################################################
   # The Web Server
@@ -85,8 +81,6 @@ services:
     expose:
       - ${WEBSERVER_CONTAINER_PORT}
     working_dir: /var/www
-    ports:
-      - "${WEBSERVER_HOST_PORT}:${WEBSERVER_CONTAINER_PORT}"
     networks:
       - net_webserver
       - net_proxy_gateway
@@ -99,7 +93,7 @@ volumes:
 
 networks:
   net_webserver: {}
-  net_backend: {}
-  net_db: {}
+  db_global:
+    external: true
   net_proxy_gateway:
     external: true
