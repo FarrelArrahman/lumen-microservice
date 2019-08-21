@@ -77,3 +77,6 @@ RUN apk update && \
     apk del .build-dependencies
 
 # EXPOSE $EXP
+
+chmod 755 -R /var/www
+chgrp www-data -R /var/www/

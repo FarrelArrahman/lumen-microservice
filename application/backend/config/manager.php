@@ -1,4 +1,8 @@
 <?php
+
+	use App\Http\Middleware\CorsMiddleware;
+	use App\Providers\AppServiceProvider;
+
 	return [
 		/*
 		|--------------------------------------------------------------------------

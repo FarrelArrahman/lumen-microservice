@@ -1,56 +1,9 @@
 version: '3.7'
 services:
   ####################################################################################################
-  # Creating container MySQL
-  ####################################################################################################
-  mysql_microservice:
-    container_name: ${MYSQL_NAME}
-    build:
-      context: ./mysql
-      dockerfile: Dockerfile
-      args:
-        - TAG=${MYSQL_TAG}
-    ports:
-      - "${MYSQL_HOST_PORT}:${MYSQL_CONTAINER_PORT}"
-    volumes:
-      - mysql_dump_microservice:/var/lib/mysql
-    networks:
-      - net_db
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-
-  ####################################################################################################
-  # The Redis Server
-  ####################################################################################################
-  redis_microservice:
-    container_name: ${REDIS_NAME}
-    build:
-      context: ./redis
-      dockerfile: Dockerfile
-      args:
-        - TAG=${REDIS_TAG}
-    expose:
-      - ${REDIS_CONTAINER_PORT}
-    volumes:
-      - redis_dump_microservice:/data
-    networks:
-      - net_db
-
-  # Use it with command: docker-compose run redis-cli
-  redis-cli_microservice:
-    container_name: ${REDIS_CLI_NAME}
-    image: redis:${REDIS_TAG}
-    networks:
-      - net_db
-    links:
-      - ${REDIS_NAME}
-    command: redis-cli -h redis
-
-  ####################################################################################################
   # The Application
   ####################################################################################################
-  backend_microservice:
+  backend:
     container_name: ${BACKEND_NAME}
     build:
       context: ./backend
@@ -61,17 +14,16 @@ services:
       - ${BACKEND_CONTAINER_PORT}
     environment:
       - COMPOSER=${BACKEND_ENV_COMPOSER}
-    working_dir: /var/www
     volumes:
-      - ../application:/var/www
+      - ../application/backend:/var/www
     networks:
       - net_webserver
-      - db_global
+      - das_network_database
 
   ####################################################################################################
   # The Web Server
   ####################################################################################################
-  webserver_microservice:
+  webserver:
     container_name: ${WEBSERVER_NAME}
     build:
       context: ./webserver
@@ -83,17 +35,13 @@ services:
     working_dir: /var/www
     networks:
       - net_webserver
-      - net_proxy_gateway
+      - das_network_gateway_proxy
     depends_on:
-      - ${BACKEND_NAME}
-
-volumes:
-  mysql_dump_microservice:
-  redis_dump_microservice:
+      - backend
 
 networks:
   net_webserver: {}
-  db_global:
+  das_network_database:
     external: true
-  net_proxy_gateway:
+  das_network_gateway_proxy:
     external: true

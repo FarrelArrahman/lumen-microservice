@@ -18,9 +18,6 @@ white='\e[107m'
 #ENV
 app_name=microservice
 
-container_webserver=webserver_${app_name}
-container_backend=backend_${app_name}
-
 message() {
     message_color=${2:-$default}
 
@@ -33,33 +30,33 @@ message() {
 }
 
 head() {
-    message "${1}" $blue
+    message "${1}" ${blue}
     return
 }
 
 step(){
-    message "${1}" $magenta
+    message "${1}" ${magenta}
     return
 }
 
 finish() {
-    message "${1}" $cyan
+    message "${1}" ${cyan}
     return
 }
 
 success(){
-    message "${1}" $green
+    message "${1}" ${green}
     return
 }
 
 error(){
-    message "${1}" $red
+    message "${1}" ${red}
     return
 }
 
 #Function to exec docker-compose commands
-command () {
-    docker-compose -p $app_name $@
+docker_commands () {
+    docker-compose -p ${app_name} $@
 }
 
 version() {
@@ -122,27 +119,23 @@ setupApplication() {
     clear
 
     step "Step 1/4"
-    command "build $container_webserver"               #Build and up container
-    command "build $container_backend"               #Build and up container
-
-    command "up -d $container_webserver"
+    docker_commands "build"
+    docker_commands "up -d"
 
     step "Step 2/4"
     head "Composer install"
-    command "exec $container_backend composer install"
-    command "exec $container_backend composer update"
+    docker_commands "exec ${app_name}_backend composer install"
 
     step "Step 3/4"
     head "Copy .env file"
-    command "exec $container_backend cp .env.example .env"
+    docker_commands "exec ${app_name}_backend cp .env.example .env"
 
     step "Step 4/4"
     head "Generate jwt secret key"
-    command "exec $container_backend php artisan jwt:secret"
+    docker_commands "exec ${app_name}_backend php artisan jwt:secret"
 
     finish "Finish application setup"
 }
-
 
 #Function to setup application (only first time)
 setup() {
@@ -177,37 +170,37 @@ do
             ;;
         -b|--build)
             clear
-            command "build ${@:3:$#}"
+            docker_commands "build ${@:3:$#}"
             ;;
         -u|--up)
             clear
-            command "up -d ${@:3:$#}"
+            docker_commands "up -d ${@:3:$#}"
             ;;
         -d|--down)
             clear
-            command "down"
+            docker_commands "down"
             ;;
         -B|--bash)
-            command "exec ${3} /bin/sh"
+            docker_commands "exec ${3} /bin/sh"
             if [ ! ${3} ]; then
                 error "Use valid container name"
             fi
             ;;
         -c|--command)
-            command ${@:3:$#}
+            docker_commands ${@:3:$#}
             if [ ${#} -le 2 ]; then
                 error "Invalid compose command"
             fi
             ;;
         -r|--run)
-            command "run ${3}"
+            docker_commands "run ${3}"
             if [ ! ${3} ]; then
                 error "Invalid command"
             fi
             ;;
         -R|--rebuild)
             clear
-            command "up -d --build"
+            docker_commands "up -d --build"
             finish "Rebuild completed"
             ;;
         --)
