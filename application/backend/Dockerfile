@@ -1,7 +1,7 @@
-FROM php:7.3.5-fpm-alpine3.9
+FROM php:7.3.8-fpm-alpine
 
 LABEL mantainer="developer@fabriziocafolla.com"
-LABEL description="Nginx Container"
+LABEL description="Production container"
 
 ENV build_deps \
 		autoconf \
