@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c9313a1a9c9083a2bdeeb9d87bbaeec",
+    "content-hash": "a98a990d614daf2a2cba53267e05e3f3",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1538,77 +1538,17 @@
             "time": "2019-06-18T18:05:50+00:00"
         },
         {
-            "name": "kosmosx/framework",
-            "version": "1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KosmosX/framework.git",
-                "reference": "67f9fe0e932b33e93aab084df8d83c8dd3b44ab5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/framework/zipball/67f9fe0e932b33e93aab084df8d83c8dd3b44ab5",
-                "reference": "67f9fe0e932b33e93aab084df8d83c8dd3b44ab5",
-                "shasum": ""
-            },
-            "require": {
-                "kosmosx/auth": "1.0.*",
-                "kosmosx/cache": "1.0.*",
-                "kosmosx/helpers": "1.0.*",
-                "kosmosx/laravel-response": "1.0.*",
-                "kosmosx/support": "1.0.*",
-                "league/flysystem": "^1.0",
-                "php": "^7.1.3"
-            },
-            "type": "lumen",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Kosmosx\\Framework\\Providers\\ManagerServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Kosmosx\\Framework\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabrizio Cafolla",
-                    "email": "developer@fabriziocafolla.com"
-                }
-            ],
-            "description": "Kosmosx Framework for Laravel and Lumen.",
-            "keywords": [
-                "api",
-                "cache",
-                "framework",
-                "laravel",
-                "lumen",
-                "rest"
-            ],
-            "time": "2019-06-28T08:55:56+00:00"
-        },
-        {
             "name": "kosmosx/helpers",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/helpers.git",
-                "reference": "b63e1d53d12d7fec08a4f8673b573e2e87b086ef"
+                "reference": "c9d055ea1255137f1cc21a2a4d39eaf798748562"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/helpers/zipball/b63e1d53d12d7fec08a4f8673b573e2e87b086ef",
-                "reference": "b63e1d53d12d7fec08a4f8673b573e2e87b086ef",
+                "url": "https://api.github.com/repos/KosmosX/helpers/zipball/c9d055ea1255137f1cc21a2a4d39eaf798748562",
+                "reference": "c9d055ea1255137f1cc21a2a4d39eaf798748562",
                 "shasum": ""
             },
             "require": {
@@ -1644,7 +1584,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2019-06-28T08:54:10+00:00"
+            "time": "2019-08-22T11:23:04+00:00"
         },
         {
             "name": "kosmosx/laravel-response",
@@ -1683,9 +1623,9 @@
             "authors": [
                 {
                     "name": "Fabrizio Cafolla",
+                    "role": "Developer",
                     "email": "developer@fabriziocafolla.com",
-                    "homepage": "https://fabriziocafolla.com",
-                    "role": "Developer"
+                    "homepage": "https://fabriziocafolla.com"
                 }
             ],
             "description": "Response service for Laravel and Lumen Framework.",
@@ -1735,9 +1675,9 @@
             "authors": [
                 {
                     "name": "Fabrizio Cafolla",
+                    "role": "Developer",
                     "email": "developer@fabriziocafolla.com",
-                    "homepage": "https://fabriziocafolla.com",
-                    "role": "Developer"
+                    "homepage": "https://fabriziocafolla.com"
                 }
             ],
             "description": "Response service for Symfony & Laravel/Lumen Framework.",
@@ -1753,16 +1693,16 @@
         },
         {
             "name": "kosmosx/support",
-            "version": "1.0.3",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/support.git",
-                "reference": "7205029a584996278e2826bd8e2407eba55906ef"
+                "reference": "04b760642a620dd25d29b1928199bfd577eb6c67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/support/zipball/7205029a584996278e2826bd8e2407eba55906ef",
-                "reference": "7205029a584996278e2826bd8e2407eba55906ef",
+                "url": "https://api.github.com/repos/KosmosX/support/zipball/04b760642a620dd25d29b1928199bfd577eb6c67",
+                "reference": "04b760642a620dd25d29b1928199bfd577eb6c67",
                 "shasum": ""
             },
             "require": {
@@ -1800,7 +1740,7 @@
                 "redis",
                 "rest"
             ],
-            "time": "2019-06-18T18:08:19+00:00"
+            "time": "2019-08-22T11:20:01+00:00"
         },
         {
             "name": "laravel/lumen-framework",

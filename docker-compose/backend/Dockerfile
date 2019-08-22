@@ -1,4 +1,4 @@
-ARG TAG=7.3.5-fpm-alpine3.9
+ARG TAG=7.3.8-fpm-alpine
 
 FROM php:$TAG
 
@@ -72,11 +72,14 @@ RUN apk update && \
 
 # Run install xdebug and remove build deps
 RUN apk update && \
-    pecl install xdebug &&\
+    pecl install xdebug && \
     docker-php-ext-enable xdebug && \
     apk del .build-dependencies
 
-# EXPOSE $EXP
+RUN addgroup develop && \
+    adduser --disabled-password -G develop dev && \
+    chown dev:develop -R /var/www/ && \
+    chmod 775 -R /var/www/ && \
+    chmod g+s -R /var/www/
 
-chmod 755 -R /var/www
-chgrp www-data -R /var/www/
+USER dev
