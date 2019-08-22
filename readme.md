@@ -129,11 +129,10 @@ If you want create automatic builds for your repository [see here](https://hub.d
 
 ### Features 
 
-**Doker** to start the application with `Nginx 1.15.12-alpine`, `PHP 7.3.5-fpm-alpine3.9`, `MySQL 5.7` and `Redis 5.0.4-alpine3.9`;
+**Doker** to start the application with `Nginx 1.17-alpine`, `PHP 7.3.8-fpm-alpine`;
 
 **Kosmos X**
 
-    -Framework: require all package and implement RepositoryPattern service and more
     -Support: services for manipulate data with Transformer, Api discovery, and more;
     -Response: create rest response more efficently;
     -Cache: services for manage File and Redis cache;
