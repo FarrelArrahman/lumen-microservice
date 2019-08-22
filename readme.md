@@ -144,7 +144,13 @@ If you want create automatic builds for your repository [see here](https://hub.d
     
 ### Changelog
 
-  ##### v3.0.0 beta
+  ##### v3.0.2 beta
+    -Remove Redis e Mysql container
+    -Move directory application into application/backend for support multi-service
+    -Update php version
+    -Remove framework package and fix bootstrap app
+
+  ##### v3.0.1 beta
     -Fix context docker-compose file
     -Fix context Dockerfile 
     
