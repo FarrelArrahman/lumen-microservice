@@ -1,5 +1,5 @@
 # Microservice Lumen - DevOps 
-![](https://img.shields.io/badge/version-3.0.1--beta-green.svg)
+![](https://img.shields.io/badge/version-3.0.2--beta-green.svg)
 ![](https://img.shields.io/badge/docker--compose-build-blue.svg)
 ![](https://img.shields.io/badge/docker-build-blue.svg)
 
@@ -19,20 +19,22 @@ Ricordare che l'immagine da usare in produzione o staging fa riferimento al Dock
 
 **- setup and run**
 
-    0. Edit command.sh if you would rename app(not required) *
+    1. Start this project https://github.com/FabrizioCafolla/docker-as-infrastructure
+    
+    2. Edit command.sh if you would rename app(not required) *
         app_name=your_app_name
        Edit .env.docker if you would change composer env (not required)
         BACKEND_ENV_COMPOSER=composer.json 
 
-    1. Only first time
+    3. Only first time
         chmod +x docker-compose/command.sh 
         ./command.sh --setup
     
-    2. Run
+    4. Run
         ./command.sh --build
         ./command.sh --up
         
-    3. Test
+    5. Test
         localhost/api/v1/test 
         localhost/api/v1/discovery
     
@@ -129,17 +131,22 @@ If you want create automatic builds for your repository [see here](https://hub.d
 
 ### Features 
 
-**Doker** to start the application with `Nginx 1.17-alpine`, `PHP 7.3.8-fpm-alpine`;
+**Host machine env**
+
+    Use this project https://github.com/FabrizioCafolla/docker-as-infrastructure for set your docker environment
+     
+**Application env** 
+    
+    -Webserver Nginx 1.17-alpine
+    -Application: PHP 7.3.8-fpm-alpine
 
 **Kosmos X**
 
     -Support: services for manipulate data with Transformer, Api discovery, and more;
     -Response: create rest response more efficently;
     -Cache: services for manage File and Redis cache;
-    -Auth: implement JWT auth;
-    -Helpers: function to help developer;
-    
-    *Artisan commands to create Repository, ApiController, Provider and Transoformers
+    -Auth: implement JWT auth and service to authenticate;
+    -Helpers: function to help developer, artisan commands to create Repository, ApiController, Provider and Transoformers
     
 ### Changelog
 
@@ -155,47 +162,6 @@ If you want create automatic builds for your repository [see here](https://hub.d
     
   ##### v3.0.0 beta
     -Refactoring and clean code
-
-  ##### v2.0.7 beta
-    -Fix docker file
-    -Update framework
-    -Fix auth command
-    
-  ##### v2.0.6 beta
-    -Update docker-compose file
-    -Add multi env for composer
-
-  ##### v2.0.5 beta
-    -Update docker-compose file
-    -Create network for app
-    -Update command.sh
-
-  ##### v2.0.4 beta
-    -Use Alpine image in Dockerfile 
-    -Fixed script
-    -Add networks in compose file
-
-  ##### v2.0.3 beta
-    -Revert Dockerfile
-    -Fixed console command Auth
-    -Update composer json
-    -Fixed config manager
-    -Add CorsMiddleware
-
-  ##### v2.0.2 beta
-    -Update dockerfile
-
-  ##### v2.0.1 beta
-    -Update sh script
-    -Clean directory
-    
-  ##### v2.0.0 beta
-    -Upgrade Lumen from 5.7 to 5.8
-    -Update package: cosmo-microservice is new version of "core-microservice"
-    -Update package: front-manager is new version of "resorces-manager"
-    -Update package: service-response is new version of "service-response"
-    -Update package: cache-system is updated 
-    -Clean code
 
 ## License
 
