@@ -40,9 +40,9 @@
 		'connections' => [
 			'mysql' => [
 				'driver'    => 'mysql',
-				'host'      => env('DB_HOST', 'mysql_microservice'),
+				'host'      => env('DB_HOST', 'mysql_global'),
 				'port'      => env('DB_PORT', 3306),
-				'database'  => env('DB_DATABASE', 'test_develop'),
+				'database'  => env('DB_DATABASE', 'microservice'),
 				'username'  => env('DB_USERNAME', 'root'),
 				'password'  => env('DB_PASSWORD', 'root'),
 				'charset'   => env('DB_CHARSET', 'utf8'),
@@ -77,7 +77,7 @@
 			'cluster' => false,
 			'client' => 'phpredis',
 			'default' => [
-				'host' => env('REDIS_HOST', 'redis'),
+				'host' => env('REDIS_HOST', 'redis_global'),
 				'password' => env('REDIS_PASSWORD', null),
 				'port' => env('REDIS_PORT', 6379),
 				'database' => 0,

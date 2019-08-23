@@ -5,8 +5,6 @@ FROM php:$TAG
 LABEL mantainer="developer@fabriziocafolla.com"
 LABEL description="Backend Container"
 
-# ARG EXP=9000
-
 ENV build_deps \
 		autoconf \
 		libzip-dev \
@@ -35,13 +33,6 @@ WORKDIR /var/www
 
 #Conflict with errors handler
 #COPY ./backend/php.ini /usr/local/etc/php/php.ini
-
-# Copy xdebug configuration for remote debugging
-COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-
-RUN sed -i "s/xdebug.remote_autostart=0/xdebug.remote_autostart=1/" /usr/local/etc/php/conf.d/xdebug.ini && \
-    sed -i "s/xdebug.remote_enable=0/xdebug.remote_enable=1/" /usr/local/etc/php/conf.d/xdebug.ini && \
-    sed -i "s/xdebug.cli_color=0/xdebug.cli_color=1/" /usr/local/etc/php/conf.d/xdebug.ini
 
 # Install build dependencies
 RUN apk upgrade && apk update && \
@@ -75,11 +66,3 @@ RUN apk update && \
     pecl install xdebug && \
     docker-php-ext-enable xdebug && \
     apk del .build-dependencies
-
-RUN addgroup develop && \
-    adduser --disabled-password -G develop dev && \
-    chown dev:develop -R /var/www/ && \
-    chmod 775 -R /var/www/ && \
-    chmod g+s -R /var/www/
-
-USER dev

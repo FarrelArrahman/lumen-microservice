@@ -67,7 +67,6 @@ RUN apk update && \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     composer install --no-dev && \
     rm -rf /usr/local/bin/composer* && \
-    cp .env.example .env && \
-    php artisan jwt:secret -f
+    cp .env.example .env
 
 EXPOSE 9000
