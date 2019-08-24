@@ -56,7 +56,9 @@
 
 	$app->register(App\Providers\AppServiceProvider::class);
 
-	$app->routeMiddleware(array());
+	$app->routeMiddleware(array(
+		'api.jwt' => Kosmosx\Auth\Middleware\JwtMiddleware::class,
+		'api.auth' => Kosmosx\Auth\Middleware\AuthenticateMiddleware::class));
 
 	$app->middleware(array(
 		Kosmosx\Support\Middleware\CorsMiddleware::class
