@@ -1,7 +1,2 @@
-application/vendor
 /.idea
-application/Homestead.json
-application/Homestead.yaml
 .env
-/docker-compose/volumes
-/application/vendor/

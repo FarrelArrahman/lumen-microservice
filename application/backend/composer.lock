@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a98a990d614daf2a2cba53267e05e3f3",
+    "content-hash": "71b9d529d0e7e31e7293baaab45797b0",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1421,22 +1421,22 @@
         },
         {
             "name": "kosmosx/auth",
-            "version": "1.0.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/auth.git",
-                "reference": "eb2c5f0258c1d5166972e5dbf0cdabfa6a991a0b"
+                "reference": "a519bb55eb9d7df89a44d9d8454299867a29ed69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/auth/zipball/eb2c5f0258c1d5166972e5dbf0cdabfa6a991a0b",
-                "reference": "eb2c5f0258c1d5166972e5dbf0cdabfa6a991a0b",
+                "url": "https://api.github.com/repos/KosmosX/auth/zipball/a519bb55eb9d7df89a44d9d8454299867a29ed69",
+                "reference": "a519bb55eb9d7df89a44d9d8454299867a29ed69",
                 "shasum": ""
             },
             "require": {
-                "kosmosx/helpers": "1.0.*",
+                "kosmosx/helpers": "~1.0",
                 "php": "^7.1.3",
-                "tymon/jwt-auth": "1.0.*@dev"
+                "tymon/jwt-auth": "^1.0"
             },
             "type": "package",
             "extra": {
@@ -1473,7 +1473,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2019-06-18T18:00:56+00:00"
+            "time": "2019-08-24T11:10:00+00:00"
         },
         {
             "name": "kosmosx/cache",
@@ -1481,17 +1481,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/cache.git",
-                "reference": "d4ad0548d09a988cfd8d64d9782d70c2a25a0369"
+                "reference": "bfffff1af9715a1165c49c4513dd77cb31575f00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/cache/zipball/d4ad0548d09a988cfd8d64d9782d70c2a25a0369",
-                "reference": "d4ad0548d09a988cfd8d64d9782d70c2a25a0369",
+                "url": "https://api.github.com/repos/KosmosX/cache/zipball/bfffff1af9715a1165c49c4513dd77cb31575f00",
+                "reference": "bfffff1af9715a1165c49c4513dd77cb31575f00",
                 "shasum": ""
             },
             "require": {
                 "illuminate/redis": ">=5.7",
-                "kosmosx/helpers": "1.0.*",
+                "kosmosx/helpers": "~1.0",
                 "laravel/lumen-framework": ">=5.7",
                 "php": ">=7.1.3",
                 "predis/predis": "^1.1"
@@ -1535,20 +1535,20 @@
                 "lumen",
                 "redis"
             ],
-            "time": "2019-06-18T18:05:50+00:00"
+            "time": "2019-08-24T11:25:55+00:00"
         },
         {
             "name": "kosmosx/helpers",
-            "version": "1.0.3",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/helpers.git",
-                "reference": "c9d055ea1255137f1cc21a2a4d39eaf798748562"
+                "reference": "6116d1fb629c834019cc5aa7ce008f2344ed5b34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/helpers/zipball/c9d055ea1255137f1cc21a2a4d39eaf798748562",
-                "reference": "c9d055ea1255137f1cc21a2a4d39eaf798748562",
+                "url": "https://api.github.com/repos/KosmosX/helpers/zipball/6116d1fb629c834019cc5aa7ce008f2344ed5b34",
+                "reference": "6116d1fb629c834019cc5aa7ce008f2344ed5b34",
                 "shasum": ""
             },
             "require": {
@@ -1584,25 +1584,25 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2019-08-22T11:23:04+00:00"
+            "time": "2019-08-24T11:27:52+00:00"
         },
         {
             "name": "kosmosx/laravel-response",
-            "version": "1.0.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/laravel-response.git",
-                "reference": "9e1d34c91f5e6a485d4899661d349de64e8bb94c"
+                "reference": "0eb90317f050d11cdfaa17ed94b11698d4081177"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/laravel-response/zipball/9e1d34c91f5e6a485d4899661d349de64e8bb94c",
-                "reference": "9e1d34c91f5e6a485d4899661d349de64e8bb94c",
+                "url": "https://api.github.com/repos/KosmosX/laravel-response/zipball/0eb90317f050d11cdfaa17ed94b11698d4081177",
+                "reference": "0eb90317f050d11cdfaa17ed94b11698d4081177",
                 "shasum": ""
             },
             "require": {
-                "kosmosx/helpers": "1.0.*",
-                "kosmosx/response": "1.0.*",
+                "kosmosx/helpers": "~1.0",
+                "kosmosx/response": "~1.0",
                 "php": ">=7.1.3"
             },
             "type": "package",
@@ -1637,7 +1637,7 @@
                 "rest",
                 "symfony"
             ],
-            "time": "2019-06-28T08:51:43+00:00"
+            "time": "2019-08-24T11:28:22+00:00"
         },
         {
             "name": "kosmosx/response",
@@ -1693,20 +1693,20 @@
         },
         {
             "name": "kosmosx/support",
-            "version": "1.0.5",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KosmosX/support.git",
-                "reference": "04b760642a620dd25d29b1928199bfd577eb6c67"
+                "reference": "6c901921120280e290eab3ad9810b638ce75c70a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KosmosX/support/zipball/04b760642a620dd25d29b1928199bfd577eb6c67",
-                "reference": "04b760642a620dd25d29b1928199bfd577eb6c67",
+                "url": "https://api.github.com/repos/KosmosX/support/zipball/6c901921120280e290eab3ad9810b638ce75c70a",
+                "reference": "6c901921120280e290eab3ad9810b638ce75c70a",
                 "shasum": ""
             },
             "require": {
-                "kosmosx/helpers": "1.0.*",
+                "kosmosx/helpers": "~1.0",
                 "league/fractal": "^0.18.0",
                 "php": "^7.1.3"
             },
@@ -1740,7 +1740,7 @@
                 "redis",
                 "rest"
             ],
-            "time": "2019-08-22T11:20:01+00:00"
+            "time": "2019-08-24T11:28:56+00:00"
         },
         {
             "name": "laravel/lumen-framework",
@@ -1870,8 +1870,8 @@
             "authors": [
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
-                    "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "lcobucci@gmail.com"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -1883,16 +1883,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.53",
+            "version": "1.0.55",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "08e12b7628f035600634a5e76d95b5eb66cea674"
+                "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/08e12b7628f035600634a5e76d95b5eb66cea674",
-                "reference": "08e12b7628f035600634a5e76d95b5eb66cea674",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/33c91155537c6dc899eacdc54a13ac6303f156e6",
+                "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6",
                 "shasum": ""
             },
             "require": {
@@ -1963,7 +1963,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-06-18T20:09:29+00:00"
+            "time": "2019-08-24T11:17:19+00:00"
         },
         {
             "name": "league/fractal",
@@ -2014,9 +2014,9 @@
             "authors": [
                 {
                     "name": "Phil Sturgeon",
+                    "role": "Developer",
                     "email": "me@philsturgeon.uk",
-                    "homepage": "http://philsturgeon.uk/",
-                    "role": "Developer"
+                    "homepage": "http://philsturgeon.uk/"
                 }
             ],
             "description": "Handle the output of complex data structures ready for API output.",
@@ -3877,9 +3877,9 @@
             "authors": [
                 {
                     "name": "Sean Tymon",
+                    "role": "Developer",
                     "email": "tymon148@gmail.com",
-                    "homepage": "https://tymon.xyz",
-                    "role": "Developer"
+                    "homepage": "https://tymon.xyz"
                 }
             ],
             "description": "JSON Web Token Authentication for Laravel and Lumen",
@@ -4252,18 +4252,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "arne@blankerts.de"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "email": "sebastian@phpeople.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpeople.de"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
@@ -4299,18 +4299,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "arne@blankerts.de"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "email": "sebastian@phpeople.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpeople.de"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library for handling version information and constraints",
@@ -4581,8 +4581,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage information.",
@@ -4632,8 +4632,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "FilterIterator implementation that filters files based on a list of suffixes.",
@@ -4674,8 +4674,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Simple template engine.",
@@ -4723,8 +4723,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Utility class for timing",
@@ -5425,8 +5425,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
@@ -5466,8 +5466,8 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "arne@blankerts.de"
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
@@ -5475,16 +5475,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9"
+                "reference": "88e6d84706d09a236046d686bbea96f07b3a34f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
-                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/88e6d84706d09a236046d686bbea96f07b3a34f4",
+                "reference": "88e6d84706d09a236046d686bbea96f07b3a34f4",
                 "shasum": ""
             },
             "require": {
@@ -5492,8 +5492,7 @@
                 "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.6",
-                "sebastian/version": "^1.0.1"
+                "phpunit/phpunit": "^4.8.36 || ^7.5.13"
             },
             "type": "library",
             "extra": {
@@ -5522,7 +5521,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-12-25T11:19:39+00:00"
+            "time": "2019-08-24T08:43:50+00:00"
         }
     ],
     "aliases": [],
